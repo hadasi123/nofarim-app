@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "984194899889",
+    "firebase_url": "https://nofarim-8837e.firebaseio.com",
+    "project_id": "nofarim-8837e",
+    "storage_bucket": "nofarim-8837e.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:984194899889:android:dbad67ac7365c63107e790",
+        "android_client_info": {
+          "package_name": "com.nofarim"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "984194899889-g79k8ep9kj04qq1ntkiptbo0v3hq5hmb.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBEXHYeDqMmuqEIYndlUBxxjeuotZPH_Hs"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "984194899889-g79k8ep9kj04qq1ntkiptbo0v3hq5hmb.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "984194899889-scrg2t0jm0ibllgsvd3pubbeg5etar8m.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.hadas.nofarim"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

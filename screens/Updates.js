@@ -72,7 +72,7 @@ const styles = StyleSheet.create({
       marginEnd: 20,
       paddingStart: 10,
       paddingEnd:10,
-      backgroundColor:'pink',
+      backgroundColor:'yellow',
     },
     header: {
       marginStart: 20,
