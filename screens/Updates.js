@@ -1,68 +1,75 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { Text, View, StyleSheet, ScrollView } from 'react-native';
 import Accordion from 'react-native-collapsible/Accordion';
 import { TouchableOpacity } from 'react-native-gesture-handler';
+import { firebase } from '../firebase/config';
 
-const SECTIONS = [
-    {
-      date: '1/11/2020',
-      content:'החלו עבודות תשתית ברחבי השכונה,חלו עבודות תשתית ברחבי השכונה,חלו עבודות תשתית ברחבי השכונה,חלו עבודות תשתית ברחבי השכונה'
-    },
-    {
-      date: '1/10/2020',
-      content:',חלו עבודות תשתית ברחבי השכונה,חלו עבודות תשתית ברחבי השכונה,חלו עבודות תשתית ברחבי השכונההחלו עבודות תשתית ברחבי השכונה'
-    },
-  ];
+export default function Updates () {
 
-export default class Updates extends React.Component {
+  //const db = firebase.firestore().settings({ experimentalForceLongPolling: true });
+  const updatesCollection = firebase.firestore().collection('updates');
+  const [updates,setUpdates] = useState([])
+  const [activeSections, setActiveSections] = useState([])
+  const newUpdates = []
 
-    state = {
-        activeSections: [],
-      };
+  useEffect(() => {
+    updatesCollection.get()
+    .then(function(querySnapshot) {
+        querySnapshot.forEach(function(doc) {
+          console.log(doc.id, " => ", doc.data());
+          setUpdates ( [...newUpdates,doc.data()]);
+        });
+    })
+    .catch(function(error) {
+        console.log("Error getting documents: ", error);
+    });
+  }, [])
      
-      _renderSectionTitle = section => {
-        return (
-          <View >
-          </View>
-        );
-      };
+  const _renderSectionTitle = section => {
+    return (
+      <View >
+      </View>
+    );
+  };
      
-      _renderHeader = section => {
-        return (
-            <View style={styles.header}>
-              <Text> {section.date} </Text> 
-          </View>
-        );
-      };
+  const _renderHeader = section => {
+    return (
+      <View style={styles.header}>
+        <Text> {section.date} </Text> 
+      </View>
+    );
+  };
      
-      _renderContent = section => {
-        return (
-          <View style={styles.content}>
-            <Text style={styles.headerText}>{section.content}</Text>
-          </View>
-        );
-      };
+  const _renderContent = section => {
+    return (
+      <View style={styles.content}>
+        <Text style={styles.headerText}>{section.content}</Text>
+      </View>
+    );
+  };
      
-      _updateSections = activeSections => {
-        this.setState({ activeSections });
-      };
+  const _updateSections = activeSections => {
+    setActiveSections(activeSections);
+  };
 
-      render() {
-        return (
-          <ScrollView >
-          <Accordion
-            sections={SECTIONS}
-            activeSections={this.state.activeSections}
-            renderSectionTitle={this._renderSectionTitle}
-            renderHeader={this._renderHeader}
-            renderContent={this._renderContent}
-            onChange={this._updateSections}
-            expandMultiple={true}
-            touchableComponent={TouchableOpacity}
-          />
-          </ScrollView>
-        );
-      }
+  const _setUpdates = updates => {
+    setUpdates(updates);
+  };
+
+  return (
+    <ScrollView >{updates &&
+      <Accordion 
+        sections={updates}
+        activeSections={activeSections}
+        renderSectionTitle={_renderSectionTitle}
+        renderHeader={_renderHeader}
+        renderContent={_renderContent}
+        onChange={_updateSections}
+        expandMultiple={true}
+        touchableComponent={TouchableOpacity}  
+      />}
+    </ScrollView>
+  );
 }
 
 const styles = StyleSheet.create({
