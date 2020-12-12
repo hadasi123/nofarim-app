@@ -6,7 +6,7 @@ import { TouchableOpacity } from 'react-native-gesture-handler';
 
 const COMING_EVENTS = [
     {
-      date:'1/12/2020',
+      date:'1/12/2020',  
       title: 'אירועי נטיעות לכבוד טו בשבט',
       content: 'הנכם מוזמנים לאירוע נטיעות המוני ברחבי השכונה, שתילים יפוזרו בשטחים המשותפים',
     },

@@ -4,7 +4,7 @@ import Headline from '../../components/Headeline';
 import Accordion from 'react-native-collapsible/Accordion';
 import { TouchableOpacity } from 'react-native-gesture-handler';
 
-const SECTIONS = [
+const SECTIONS = [ // liraz should not be under screens folder, do not mix data with ui
     {
       title: 'שם טוב לוי הגנן',
       content: 'מבצע את כל עבודות הגינון בביתך',

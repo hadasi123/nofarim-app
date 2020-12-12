@@ -1,6 +1,6 @@
 import * as firebase from 'firebase';
 
-const firebaseConfig = {
+const firebaseConfig = { // liraz we don't need this in the new firebase version, only json file
     apiKey: "AIzaSyD9YcskAUjVANQVpIUQZGlW1BhU7Ap9XgA",
     authDomain: "nofarim-8837e.firebaseapp.com",
     databaseURL: "https://nofarim-8837e.firebaseio.com",

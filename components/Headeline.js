@@ -3,7 +3,7 @@ import {View,Text, Image} from 'react-native';
 
 export default class Headline extends React.Component {
 
-    render(){
+    render(){// liraz use destructuring for props
     return (
             <View style={styles.businessItem} >
                 <Image style={styles.icon} source={require('../assets/favicon.png')} />

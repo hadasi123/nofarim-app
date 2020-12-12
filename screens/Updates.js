@@ -4,7 +4,7 @@ import Accordion from 'react-native-collapsible/Accordion';
 import { TouchableOpacity } from 'react-native-gesture-handler';
 import { firebase } from '../firebase/config';
 
-export default function Updates () {
+export default function Updates () {  // liraz do not use function, use const arrow function
 
   //const db = firebase.firestore().settings({ experimentalForceLongPolling: true });
   const updatesCollection = firebase.firestore().collection('updates');
@@ -13,11 +13,11 @@ export default function Updates () {
   const newUpdates = []
 
   useEffect(() => {
-    updatesCollection.get()
+    updatesCollection.get()  // liraz use async await
     .then(function(querySnapshot) {
         querySnapshot.forEach(function(doc) {
           console.log(doc.id, " => ", doc.data());
-          setUpdates ( [...newUpdates,doc.data()]);
+          setUpdates ( [newUpdates,doc.data()]);  // newUpdates is useless, always empty
         });
     })
     .catch(function(error) {
@@ -55,7 +55,6 @@ export default function Updates () {
   const _setUpdates = updates => {
     setUpdates(updates);
   };
-
   return (
     <ScrollView >{updates &&
       <Accordion 

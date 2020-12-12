@@ -4,6 +4,6 @@ import MyNavigation from './app/MyNavigation'
 
 export default function App() {
   return (
-    <MyNavigation></MyNavigation>
+    <MyNavigation></MyNavigation>  // liraz <MyNavigation/>
   );
 }

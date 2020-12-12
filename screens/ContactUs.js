@@ -2,9 +2,9 @@ import React from 'react';
 import { Text, View, StyleSheet } from 'react-native';
 
 
-export default class ContactUs extends React.Component {
+export default class ContactUs extends React.Component { // liraz we are not using classes any more
 
-
+// liraz use string file
     render() {
         return (
           <View style={styles.view_style}>
@@ -28,7 +28,7 @@ const styles = StyleSheet.create({
     fontSize:18,
 
   },
-  view_style: {
+  view_style: { //liraz hebrew text align right
     flex: 1,
     margin: 30,
   },
