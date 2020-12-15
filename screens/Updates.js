@@ -4,25 +4,28 @@ import Accordion from 'react-native-collapsible/Accordion';
 import { TouchableOpacity } from 'react-native-gesture-handler';
 import { firebase } from '../firebase/config';
 
-export default function Updates () {
+const Updates = () => {
 
-  //const db = firebase.firestore().settings({ experimentalForceLongPolling: true });
   const updatesCollection = firebase.firestore().collection('updates');
   const [updates,setUpdates] = useState([])
   const [activeSections, setActiveSections] = useState([])
-  const newUpdates = []
+  var newUpdates = []
 
   useEffect(() => {
-    updatesCollection.get()
-    .then(function(querySnapshot) {
+    const fetchUpdates = async () => {
+      try{
+        const querySnapshot = await updatesCollection.get()
         querySnapshot.forEach(function(doc) {
-          console.log(doc.id, " => ", doc.data());
-          setUpdates ( [...newUpdates,doc.data()]);
+        console.log(doc.id, " => ", doc.data());
+              newUpdates = ( [...newUpdates,doc.data()]);
         });
-    })
-    .catch(function(error) {
-        console.log("Error getting documents: ", error);
-    });
+        _setUpdates(newUpdates)
+      }
+      catch(error) {
+          console.log("Error getting documents: ", error);
+      };
+    }
+    fetchUpdates();
   }, [])
      
   const _renderSectionTitle = section => {
@@ -88,3 +91,5 @@ const styles = StyleSheet.create({
 
     },
   });
+
+export default Updates;

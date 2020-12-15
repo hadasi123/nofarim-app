@@ -1,18 +1,19 @@
 import React from 'react';
 import {View,Text, Image} from 'react-native';
 
-export default class Headline extends React.Component {
+const Headline = (props) => {
 
-    render(){
+    const {title, description} = props;
+    
     return (
-            <View style={styles.businessItem} >
-                <Image style={styles.icon} source={require('../assets/favicon.png')} />
-                <View>
-                    <Text style={styles.title}>  {this.props.title}</Text>
-                    <Text style={styles.description}>  {this.props.description}</Text>
-                </View>
+        <View style={styles.businessItem} >
+            <Image style={styles.icon} source={require('../assets/favicon.png')} />
+            <View>
+                <Text style={styles.title}>  {title}</Text>
+                <Text style={styles.description}>  {description}</Text>
             </View>
-    )}
+        </View>
+    )
 };
 
 const styles = {
@@ -37,3 +38,5 @@ const styles = {
         width:30,
     },
 };
+
+export default Headline;

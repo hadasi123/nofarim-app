@@ -1,15 +1,15 @@
 import React from 'react';
-import {View,Text,TouchableOpacity, Image} from 'react-native';
+import {Text,TouchableOpacity, Image} from 'react-native';
 
-export default class TableItem extends React.Component {
+const TableItem = (props) => {
 
-    render(){
+    const {onPress, title} = props;
     return (
-            <TouchableOpacity style={[styles.tableItem]} onPress={this.props.onPress}>
+            <TouchableOpacity style={[styles.tableItem]} onPress={onPress}>
                 <Image style={styles.icon} source={require('../assets/favicon.png')} />
-                <Text style={styles.text}>  {this.props.title}</Text>
+                <Text style={styles.text}>  {title}</Text>
             </TouchableOpacity>
-    )}
+    )
 };
 
 const styles = {
@@ -35,3 +35,5 @@ const styles = {
         height:50,
     },
 };
+
+export default TableItem;

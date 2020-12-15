@@ -1,7 +1,8 @@
 import React from 'react';
-import { Button, View, Text, StyleSheet } from 'react-native';
+import { View, StyleSheet } from 'react-native';
 import TableItem from '../components/TableItem';
-
+import * as constants from '../constants';
+import * as strings from '../strings';
 export default class Home extends React.Component {
 
   static navigationOptions = {
@@ -14,29 +15,29 @@ export default class Home extends React.Component {
 
         <View style={styles.row_style}>
             <TableItem
-                title="לוח אירועים"
-                onPress={() => this.props.navigation.navigate('לוח אירועים')}/>
+                title={strings.menu_events}
+                onPress={() => this.props.navigation.navigate(constants.screen_events)}/>
             <TableItem
-                title="בעלי מקצוע"
-                onPress={() => this.props.navigation.navigate('בעלי מקצוע')}/>
+                title={strings.menu_professionals}
+                onPress={() => this.props.navigation.navigate(constants.screen_main_professionals)}/>
         </View>
 
         <View style={styles.row_style}>
             <TableItem
-                title="עדכוני מִנְהֶלֶת"
-                onPress={() => this.props.navigation.navigate('עדכוני מינהלת השכונה')}/>
+                title={strings.menu_updates}
+                onPress={() => this.props.navigation.navigate(constants.screen_updates)}/>
             <TableItem
-                title="הגדרות"
-                onPress={() => this.props.navigation.navigate('הגדרות')}/>
+                title={strings.menu_settings}
+                onPress={() => this.props.navigation.navigate(constants.screen_settings)}/>
         </View>
 
         <View style={styles.row_style}>
             <TableItem
-                title="דיווח על מפגע"
-                onPress={() => this.props.navigation.navigate('דיווח על מפגע')}/>
+                title={strings.menu_report}
+                onPress={() => this.props.navigation.navigate(constants.screen_hazard_report)}/>
             <TableItem
-                title="צור קשר"
-                onPress={() => this.props.navigation.navigate('צור קשר')}/>
+                title={strings.menu_contactUs}
+                onPress={() => this.props.navigation.navigate(constants.screen_contact_us)}/>
         </View>
       </View>
     );

@@ -2,7 +2,6 @@ import React, {Component} from 'react';
 import { StyleSheet, Text, View, Image } from 'react-native';
 import { StatusBar } from 'expo-status-bar';
 import Constants from 'expo-constants';
-
 class Splash extends Component{
 
     constructor(props) {
@@ -12,7 +11,6 @@ class Splash extends Component{
     render(){
         return (
             <View style={styles.container}>
-            <Text>שכונת נופרים</Text>
             <Image style={styles.image} source={require('../assets/colourful-city.jpg')} />
             <StatusBar style='auto' />
           </View>
