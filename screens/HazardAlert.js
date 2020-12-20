@@ -1,13 +1,12 @@
 import React from 'react';
-import { Text } from 'react-native';
+import ReportWebView from '../components/ReportWebView'
 
+const HazardAlert = () => {
 
-export default class HazardAlert extends React.Component {
-
-
-    render() {
         return (
-          <Text>contact us</Text>
+          <ReportWebView></ReportWebView>
         );
-      }
+      
 }
+
+export default HazardAlert

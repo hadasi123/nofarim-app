@@ -3,7 +3,7 @@ export const menu_professionals = 'בעלי מקצוע';
 export const menu_events = 'לוח אירועים';
 export const menu_settings = 'הגדרות';
 export const menu_updates = 'עדכוני מִנְהֶלֶת';
-export const menu_contactUs = 'צור קשר';
+export const menu_contactUs = 'יצירת קשר';
 export const menu_report = 'דיווח על מפגע';
 
 export const sub_sweets = 'עוגות ומתוקים';
@@ -22,3 +22,5 @@ export const contact_us_content = 'האפליקציה איננה אפליקצי�
                                 + 'פיתוח האפליקציה נעשה על ידי תושבי השכונה בהתנדבות ובאהבה.' + '\n' + '\n' 
                                 + 'לכל הצעה, תלונה, רעיון לשיפור והתנדבות, ניתן לפנות במייל:' + '\n'
                                 + 'hadasicohen1@gmail.com' ;
+
+export const report_loading = 'מעבר למוקד העירוני...';
