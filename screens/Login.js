@@ -29,7 +29,7 @@ const Login = () => {
         GoogleSignin.configure({
           scopes: ['email'], // on behalf of the user
           webClientId:
-            '50447435770-1ah5vtk8a2vvmoovu9icdtr5uebm0frq.apps.googleusercontent.com', // client ID of type WEB for your server (needed to verify user ID and offline access)
+            '50447435770-90pfai85v1po1p14omsvrovfl4em2kq0.apps.googleusercontent.com', // client ID of type WEB for your server (needed to verify user ID and offline access)
           offlineAccess: true, // if you want to access Google API on behalf of the user FROM YOUR SERVER
         });
       }, []);
