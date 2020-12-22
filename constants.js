@@ -1,3 +1,4 @@
+export const screen_login = 'הרשמה';
 export const screen_main = 'תפריט ראשי';
 export const screen_main_professionals = 'בעלי מקצוע';
 export const screen_list_pros = 'רשימת בעלי מקצוע';

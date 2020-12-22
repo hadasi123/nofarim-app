@@ -9,6 +9,7 @@ import Proffessaionals from '../screens/professionals/Professionals';
 import ListOfProfessionals from '../screens/professionals/ListOfProfessionals';
 import Settings from '../screens/Settings';
 import Updates from '../screens/Updates';
+import Login from '../screens/Login';
 import * as constants from '../constants';
 
 const RootStack = createStackNavigator();
@@ -17,6 +18,7 @@ const MyNavigation = () => {
   return (
     <NavigationContainer>
       <RootStack.Navigator>
+        <RootStack.Screen name={constants.screen_login} component={Login} />
         <RootStack.Screen name={constants.screen_main} component={Home} />
         <RootStack.Screen name={constants.screen_contact_us} component={ContactUs} />
         <RootStack.Screen name={constants.screen_events} component={Events} />

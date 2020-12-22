@@ -15,6 +15,14 @@
       },
       "oauth_client": [
         {
+          "client_id": "984194899889-u0u2jbo5domf8aro1v33eburlhejl05e.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.nofarim",
+            "certificate_hash": "b69f804dca2950d0ba84d9c4e58ee57b107d2f16"
+          }
+        },
+        {
           "client_id": "984194899889-g79k8ep9kj04qq1ntkiptbo0v3hq5hmb.apps.googleusercontent.com",
           "client_type": 3
         }
