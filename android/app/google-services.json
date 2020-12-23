@@ -15,15 +15,7 @@
       },
       "oauth_client": [
         {
-          "client_id": "984194899889-aia9sjvbolapofbjr07tk6iqs88ltqnc.apps.googleusercontent.com",
-          "client_type": 1,
-          "android_info": {
-            "package_name": "com.nofarim",
-            "certificate_hash": "b69f804dca2950d0ba84d9c4e58ee57b107d2f16"
-          }
-        },
-        {
-          "client_id": "984194899889-bnb3s4gl6hck7bc5gc2o6pmco8428p9v.apps.googleusercontent.com",
+          "client_id": "984194899889-3esk1mdeur74uo9l0qmrr0kmv2ig5um5.apps.googleusercontent.com",
           "client_type": 1,
           "android_info": {
             "package_name": "com.nofarim",
