@@ -3,18 +3,18 @@ import { Text, View, StyleSheet } from 'react-native';
 import * as strings from '../strings'
 import {GoogleSignin, statusCodes} from '@react-native-community/google-signin';
 import auth from '@react-native-firebase/auth';
-
+import {LoginManager,AccessToken,GraphRequest,GraphRequestManager,} from 'react-native-fbsdk';
 
 const Login = () => {
 
-    const [loggedIn, setloggedIn] = useState(false);
-    const [userInfo, setUserInfo] = useState([]);
+    const [loggedInGoogle, setloggedInGoogle] = useState(false);
+    const [userInfoGoogle, setUserInfoGoogle] = useState([]);
     
     const signInWithGoogle = async () => {
         try {
           await GoogleSignin.hasPlayServices();
           const {accessToken, idToken} = await GoogleSignin.signIn();
-          setloggedIn(true);
+          setloggedInGoogle(true);
     
           const credential = auth.GoogleAuthProvider.credential(
             idToken,
@@ -36,33 +36,87 @@ const Login = () => {
 
     useEffect(() => {
         GoogleSignin.configure({
-          scopes: ['email','profile'], // on behalf of the user
-          webClientId:
-            '984194899889-g79k8ep9kj04qq1ntkiptbo0v3hq5hmb.apps.googleusercontent.com', // client ID of type WEB for your server (needed to verify user ID and offline access)
-          offlineAccess: true, // if you want to access Google API on behalf of the user FROM YOUR SERVER
+          scopes: ['email','profile'],
+          webClientId:'984194899889-g79k8ep9kj04qq1ntkiptbo0v3hq5hmb.apps.googleusercontent.com',
+          offlineAccess: true,
         });
         const subscriber = auth().onAuthStateChanged(onAuthStateChanged);
-        return subscriber; // unsubscribe on unmount
-      }, []);
-
+        return subscriber;
+    }, []);
 
     function onAuthStateChanged(user) {
-        setUserInfo(user);
+        setUserInfoGoogle(user);
         console.log(user);
-        if (user) setloggedIn(true);
+        if (user) setloggedInGoogle(true);
     }
 
     const GoogleSignOut = async () => {
         try {
           await GoogleSignin.revokeAccess();
           await GoogleSignin.signOut();
-          setloggedIn(false);
-          setUserInfo([]);
+          setloggedInGoogle(false);
+          setUserInfoGoogle([]);
         } catch (error) {
           console.error(error);
         }
-      };
+    };
+  /////////////////////////////////////////////////////////////////
+    const [userInfoFacebook, setUserInfoFacebook] = useState([]);
 
+    const logoutWithFacebook = () => {
+      LoginManager.logOut();
+      setUserInfoFacebook([]);
+      console.log("logged out from facebook")
+    };
+
+    const getInfoFromToken = token => {
+      const PROFILE_REQUEST_PARAMS = {
+        fields: {
+          string: 'id,name,first_name,last_name',
+        },
+    };
+    
+    const profileRequest = new GraphRequest(
+        '/me',
+        {token, parameters: PROFILE_REQUEST_PARAMS},
+        (error, user) => {
+          if (error) {
+            console.log('login info has error: ' + error);
+          } else {
+            setUserInfoFacebook(user);
+            console.log('result:', user);
+          }
+        },
+      );
+      new GraphRequestManager().addRequest(profileRequest).start();
+    };
+
+    const loginWithFacebook = () => {
+      // Attempt a login using the Facebook login dialog asking for default permissions.
+      LoginManager.logInWithPermissions(['public_profile']).then(
+        login => {
+          if (login.isCancelled) {
+            console.log('Login cancelled');
+          } else {
+            AccessToken.getCurrentAccessToken().then(data => {
+
+              console.log("access token: "+data.accessToken)
+              getInfoFromToken(data.accessToken.toString());
+              // Create a Firebase credential with the AccessToken
+              const facebookCredential = auth.FacebookAuthProvider.credential(data.accessToken);
+              // Sign-in the user with the credential
+              return auth().signInWithCredential(facebookCredential);
+            });
+
+           
+          }
+        },
+        error => {
+          console.log('Login fail with error: ' + error);
+        },
+      );
+    };
+  /////////////////////////////////////////////////////////////////
    return (
     <View style={styles.view_style}>
 
@@ -72,9 +126,8 @@ const Login = () => {
         </View>
 
         <View style={styles.options_container_style}>
-            <Text style={styles.text_style} onPress={GoogleSignOut}>{strings.login_facebook}</Text>
+            <Text style={styles.text_style} onPress={loginWithFacebook}>{strings.login_facebook}</Text>
             <Text style={styles.text_style} onPress={signInWithGoogle}>{strings.login_google}</Text>
-            <Text style={styles.subtext_style}>{strings.login_guest}</Text>
         </View>
     </View>
   );
