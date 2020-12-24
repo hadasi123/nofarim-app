@@ -2,7 +2,6 @@ export const login_title = "ברוכים הבאים לנופרים";
 export const login_subtitle = "יחד נהפוך את השכונה לקהילה";
 export const login_facebook = "כניסה עם פייסבוק";
 export const login_google = "כניסה עם גוגל";
-export const login_guest = "כניסה אנונימית";
 
 export const menu_headline = 'תפריט ראשי';
 export const menu_professionals = 'בעלי מקצוע';

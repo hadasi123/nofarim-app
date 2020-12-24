@@ -137,6 +137,8 @@ const styles = StyleSheet.create({
 title_style: {
     fontSize:32,
     marginBottom:16,
+    fontFamily: "Assistant-Bold"
+
 },
 subtitle_style: {
     fontSize:28,
