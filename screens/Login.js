@@ -5,8 +5,9 @@ import {GoogleSignin, statusCodes} from '@react-native-community/google-signin';
 import auth from '@react-native-firebase/auth';
 import {LoginManager,AccessToken,GraphRequest,GraphRequestManager,} from 'react-native-fbsdk';
 import store from '../authStore';
+import * as constants from '../constants';
 
-const Login = () => {
+const Login = (props) => {
     var state = store.getState()
     store.subscribe( () => {
       state = store.getState()
@@ -51,11 +52,13 @@ const Login = () => {
             type: 'LOGIN_SUCCESS',
             user,
           })
+
+          props.navigation.navigate(constants.screen_main)
         }
     }
 
     const GoogleLogout = async () => {
-        try {
+      try {
           await GoogleSignin.revokeAccess();
           await GoogleSignin.signOut();
           await auth().signOut().then(() => 

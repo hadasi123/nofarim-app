@@ -1,40 +1,32 @@
-import React, {Component} from 'react';
-import { StyleSheet, Text, View, Image } from 'react-native';
-import { StatusBar } from 'expo-status-bar';
-import Constants from 'expo-constants';
-class Splash extends Component{
+import React, {useEffect} from 'react';
+import { StyleSheet, View } from 'react-native';
+import store from '../authStore';
+import * as constants from '../constants';
 
-    constructor(props) {
-        super(props);
-    }
+const Splash = (props) => {
 
-    render(){
-        return (
-            <View style={styles.container}>
-            <Image style={styles.image} source={require('../assets/colourful-city.jpg')} />
-            <StatusBar style='auto' />
-          </View>
-        )
+  useEffect(() => {
+    if(store.getState().loggedin)
+    {
+      props.navigation.navigate(constants.screen_main)
     }
+    else{
+      props.navigation.navigate(constants.screen_login)
+    }
+  }, [])
+    
+  return (
+    <View style={styles.container}> 
+    </View>
+  )
 }
 
 const styles = StyleSheet.create({
     container: {
       flex:1,
-      paddingTop: Constants.statusBarHeight,
-      backgroundColor:'#31ADE9',
+      backgroundColor:'#6529C6',
       alignItems:'center',
-      justifyContent:'space-between',
-      flexDirection:'column',
     },
-    image: {
-    width:400,
-    height:300,
-    },
-    text: {
-      color:'#fff',
-      fontSize:30
-    }
   });
 
 export default Splash;
