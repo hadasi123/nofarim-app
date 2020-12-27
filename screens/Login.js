@@ -6,8 +6,10 @@ import auth from '@react-native-firebase/auth';
 import {LoginManager,AccessToken,GraphRequest,GraphRequestManager,} from 'react-native-fbsdk';
 import store from '../authStore';
 import * as constants from '../constants';
+import {StackActions } from '@react-navigation/native';
 
 const Login = (props) => {
+    
     var state = store.getState()
     store.subscribe( () => {
       state = store.getState()
@@ -53,6 +55,8 @@ const Login = (props) => {
             user,
           })
 
+          const popAction = StackActions.pop(1);
+          props.navigation.dispatch(popAction);
           props.navigation.navigate(constants.screen_main)
         }
     }

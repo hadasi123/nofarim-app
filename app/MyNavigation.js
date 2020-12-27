@@ -19,9 +19,9 @@ const MyNavigation = () => {
   return (
     <NavigationContainer>
       <RootStack.Navigator>
-        <RootStack.Screen name={constants.screen_splash} component={Splash} />
-        <RootStack.Screen name={constants.screen_login} component={Login} />
-        <RootStack.Screen name={constants.screen_main} component={Home} />
+        <RootStack.Screen name={constants.screen_splash} component={Splash} options={{headerShown: false}}/>
+        <RootStack.Screen name={constants.screen_login} component={Login} options={{headerShown: false}}/>
+        <RootStack.Screen name={constants.screen_main} component={Home} options={{headerShown: false}}/>
         <RootStack.Screen name={constants.screen_contact_us} component={ContactUs} />
         <RootStack.Screen name={constants.screen_events} component={Events} />
         <RootStack.Screen name={constants.screen_hazard_report} component={HazardAlert} />
