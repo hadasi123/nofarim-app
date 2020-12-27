@@ -1,21 +1,21 @@
-import React,{ useEffect, useState } from 'react';
+import React,{ useEffect } from 'react';
 import { Text, View, StyleSheet } from 'react-native';
 import * as strings from '../strings'
 import {GoogleSignin, statusCodes} from '@react-native-community/google-signin';
 import auth from '@react-native-firebase/auth';
 import {LoginManager,AccessToken,GraphRequest,GraphRequestManager,} from 'react-native-fbsdk';
+import store from '../authStore';
 
 const Login = () => {
-
-    const [loggedInGoogle, setloggedInGoogle] = useState(false);
-    const [userInfoGoogle, setUserInfoGoogle] = useState([]);
+    var state = store.getState()
+    store.subscribe( () => {
+      state = store.getState()
+    })
     
-    const signInWithGoogle = async () => {
+    const GoogleLogin = async () => {
         try {
           await GoogleSignin.hasPlayServices();
           const {accessToken, idToken} = await GoogleSignin.signIn();
-          setloggedInGoogle(true);
-    
           const credential = auth.GoogleAuthProvider.credential(
             idToken,
             accessToken,
@@ -45,28 +45,39 @@ const Login = () => {
     }, []);
 
     function onAuthStateChanged(user) {
-        setUserInfoGoogle(user);
         console.log(user);
-        if (user) setloggedInGoogle(true);
+        if (user) {
+          store.dispatch({
+            type: 'LOGIN_SUCCESS',
+            user,
+          })
+        }
     }
 
-    const GoogleSignOut = async () => {
+    const GoogleLogout = async () => {
         try {
           await GoogleSignin.revokeAccess();
           await GoogleSignin.signOut();
-          setloggedInGoogle(false);
-          setUserInfoGoogle([]);
+          await auth().signOut().then(() => 
+          store.dispatch({
+            type: 'LOGOUT_SUCCESS',
+          }));
         } catch (error) {
           console.error(error);
         }
     };
-  /////////////////////////////////////////////////////////////////
-    const [userInfoFacebook, setUserInfoFacebook] = useState([]);
 
-    const logoutWithFacebook = () => {
-      LoginManager.logOut();
-      setUserInfoFacebook([]);
-      console.log("logged out from facebook")
+    const FacebookLogout = async() => {
+      try{
+        LoginManager.logOut();
+        await auth().signOut().then(() => 
+            store.dispatch({
+              type: 'LOGOUT_SUCCESS',
+            }));
+      }
+      catch(error){
+        console.error(error);
+      }
     };
 
     const getInfoFromToken = token => {
@@ -83,7 +94,6 @@ const Login = () => {
           if (error) {
             console.log('login info has error: ' + error);
           } else {
-            setUserInfoFacebook(user);
             console.log('result:', user);
           }
         },
@@ -91,7 +101,7 @@ const Login = () => {
       new GraphRequestManager().addRequest(profileRequest).start();
     };
 
-    const loginWithFacebook = () => {
+    const FacebookLogin = () => {
       // Attempt a login using the Facebook login dialog asking for default permissions.
       LoginManager.logInWithPermissions(['public_profile']).then(
         login => {
@@ -99,7 +109,6 @@ const Login = () => {
             console.log('Login cancelled');
           } else {
             AccessToken.getCurrentAccessToken().then(data => {
-
               console.log("access token: "+data.accessToken)
               getInfoFromToken(data.accessToken.toString());
               // Create a Firebase credential with the AccessToken
@@ -107,8 +116,6 @@ const Login = () => {
               // Sign-in the user with the credential
               return auth().signInWithCredential(facebookCredential);
             });
-
-           
           }
         },
         error => {
@@ -116,8 +123,8 @@ const Login = () => {
         },
       );
     };
-  /////////////////////////////////////////////////////////////////
-   return (
+
+  return (
     <View style={styles.view_style}>
 
         <View style={styles.main_container_style}>
@@ -126,8 +133,8 @@ const Login = () => {
         </View>
 
         <View style={styles.options_container_style}>
-            <Text style={styles.text_style} onPress={loginWithFacebook}>{strings.login_facebook}</Text>
-            <Text style={styles.text_style} onPress={signInWithGoogle}>{strings.login_google}</Text>
+            <Text style={styles.text_style} onPress={FacebookLogin}>{strings.login_facebook}</Text>
+            <Text style={styles.text_style} onPress={GoogleLogin}>{strings.login_google}</Text>
         </View>
     </View>
   );
