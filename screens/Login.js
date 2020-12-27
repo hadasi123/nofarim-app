@@ -148,7 +148,6 @@ title_style: {
     fontSize:32,
     marginBottom:16,
     fontFamily: "Assistant-Bold"
-
 },
 subtitle_style: {
     fontSize:28,
@@ -185,7 +184,6 @@ options_container_style: {
     alignItems: 'center',
     justifyContent: 'center',
 },
-
 });
 
 export default Login;

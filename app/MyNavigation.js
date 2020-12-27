@@ -11,7 +11,6 @@ import Settings from '../screens/Settings';
 import Updates from '../screens/Updates';
 import Login from '../screens/Login';
 import Splash from '../screens/Splash';
-
 import * as constants from '../constants';
 
 const RootStack = createStackNavigator();

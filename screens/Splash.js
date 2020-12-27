@@ -6,27 +6,23 @@ import * as constants from '../constants';
 const Splash = (props) => {
 
   useEffect(() => {
-    if(store.getState().loggedin)
-    {
+    if(store.getState().loggedin) {
       props.navigation.navigate(constants.screen_main)
     }
-    else{
+    else {
       props.navigation.navigate(constants.screen_login)
     }
   }, [])
     
-  return (
-    <View style={styles.container}> 
-    </View>
-  )
+  return (<View style={styles.container}></View>)
 }
 
 const styles = StyleSheet.create({
-    container: {
+  container: {
       flex:1,
       backgroundColor:'#6529C6',
       alignItems:'center',
-    },
-  });
+  },
+});
 
 export default Splash;

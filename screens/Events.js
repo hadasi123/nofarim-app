@@ -100,7 +100,6 @@ const styles = StyleSheet.create({
       marginStart: 20,
       marginEnd: 20,
       marginTop: 10,
-
     },
   });
 
