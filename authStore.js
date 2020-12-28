@@ -1,29 +1,22 @@
-import {createStore} from 'redux';
+import { createStore } from 'redux';
 
 const defaultState = {
-    loggedIn:false,
-    email:undefined
+    loggedIn: false,
+    email: undefined
 }
 
-function authStore(state = defaultState, action){
+function authStore(state = defaultState, action) {
 
-    switch(action.type)
-    {
+    switch (action.type) {
         case 'LOGIN_SUCCESS':
             {
-                return Object.assign(
-                    {},
-                    state,
-                    {email:action.email, loggedIn:true}
-                    )
+                return { ...state, email: action.email, loggedIn: true }
+
             }
         case 'LOGOUT_SUCCESS':
             {
-                return Object.assign(
-                    {},
-                    state,
-                    {email:undefined, loggedIn:false}
-                    )
+                return { ...state, email: undefined, loggedIn: false }
+
             }
         default:
             return state

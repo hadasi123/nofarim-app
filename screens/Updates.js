@@ -2,11 +2,11 @@ import React, { useEffect, useState } from 'react';
 import { Text, View, StyleSheet, ScrollView } from 'react-native';
 import Accordion from 'react-native-collapsible/Accordion';
 import { TouchableOpacity } from 'react-native-gesture-handler';
-import { firebase } from '../firebase/config';
+import firestore from '@react-native-firebase/firestore';
 
 const Updates = () => {
 
-  const updatesCollection = firebase.firestore().collection('updates');
+  const updatesCollection = firestore().collection('updates');
   const [updates,setUpdates] = useState([])
   const [activeSections, setActiveSections] = useState([])
   var newUpdates = []

@@ -47,7 +47,7 @@ const Login = (props) => {
         return subscriber;
     }, []);
 
-    function onAuthStateChanged(user) {
+    const onAuthStateChanged = (user) => {
         console.log(user);
         if (user) {
           store.dispatch({
