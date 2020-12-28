@@ -12,12 +12,13 @@ import Updates from '../screens/Updates';
 import Login from '../screens/Login';
 import Splash from '../screens/Splash';
 import * as constants from '../constants';
+import {StyleSheet} from 'react-native';
 
 const RootStack = createStackNavigator();
  
 const MyNavigation = () => {
   return (
-    <NavigationContainer>
+    <NavigationContainer style={styles.view_style}>
       <RootStack.Navigator>
         <RootStack.Screen name={constants.screen_splash} component={Splash} options={{headerShown: false}}/>
         <RootStack.Screen name={constants.screen_login} component={Login} options={{headerShown: false}}/>
@@ -36,4 +37,10 @@ const MyNavigation = () => {
   );
 };
  
+const styles = StyleSheet.create({
+  view_style: {
+    flex: 1,
+  },
+});
+
 export default MyNavigation;
