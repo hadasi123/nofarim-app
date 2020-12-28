@@ -3,11 +3,10 @@ import { Text, View, StyleSheet, ScrollView } from 'react-native';
 import Headline from '../../components/Headeline';
 import Accordion from 'react-native-collapsible/Accordion';
 import { TouchableOpacity } from 'react-native-gesture-handler';
-import { firebase } from '../../firebase/config';
 
 const ListOfProfessionals = () => {
 
-  const professionalsCollection = firebase.firestore().collection('professionals');
+  const professionalsCollection = firestore().collection('professionals');
   const [professionals,setProfessionals] = useState([])
   const [activeSections, setActiveSections] = useState([])
   var newProfessionals = []

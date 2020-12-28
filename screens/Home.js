@@ -5,34 +5,37 @@ import * as constants from '../constants';
 import * as strings from '../strings';
 
 const Home = (props) => {
+
+  const { navigation } = props
+
     return (
       <View style={styles.grid_style}>
 
         <View style={styles.row_style}>
             <TableItem
                 title={strings.menu_events}
-                onPress={() => props.navigation.navigate(constants.screen_events)}/>
+                onPress={() => navigation.navigate(constants.screen_events)}/>
             <TableItem
                 title={strings.menu_professionals}
-                onPress={() => props.navigation.navigate(constants.screen_main_professionals)}/>
+                onPress={() => navigation.navigate(constants.screen_main_professionals)}/>
         </View>
 
         <View style={styles.row_style}>
             <TableItem
                 title={strings.menu_updates}
-                onPress={() => props.navigation.navigate(constants.screen_updates)}/>
+                onPress={() => navigation.navigate(constants.screen_updates)}/>
             <TableItem
                 title={strings.menu_settings}
-                onPress={() => props.navigation.navigate(constants.screen_settings)}/>
+                onPress={() => navigation.navigate(constants.screen_settings)}/>
         </View>
 
         <View style={styles.row_style}>
             <TableItem
                 title={strings.menu_report}
-                onPress={() => props.navigation.navigate(constants.screen_hazard_report)}/>
+                onPress={() => navigation.navigate(constants.screen_hazard_report)}/>
             <TableItem
                 title={strings.menu_contactUs}
-                onPress={() => props.navigation.navigate(constants.screen_contact_us)}/>
+                onPress={() => navigation.navigate(constants.screen_contact_us)}/>
         </View>
       </View>
     );
