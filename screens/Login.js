@@ -1,5 +1,5 @@
 import React,{ useEffect } from 'react';
-import { Text, View, StyleSheet } from 'react-native';
+import { Text, View, StyleSheet, Image, Linking } from 'react-native';
 import * as strings from '../strings'
 import {GoogleSignin, statusCodes} from '@react-native-community/google-signin';
 import auth from '@react-native-firebase/auth';
@@ -7,6 +7,8 @@ import {LoginManager,AccessToken,GraphRequest,GraphRequestManager,} from 'react-
 import store from '../authStore';
 import * as constants from '../constants';
 import {StackActions } from '@react-navigation/native';
+import Colors from '../design';
+import LoginButton from '../components/LoginButton';
 
 const Login = (props) => {
     
@@ -134,59 +136,96 @@ const Login = (props) => {
   return (
     <View style={styles.view_style}>
 
+      <Image style={styles.top_section} source={require('../assets/login_top.png')} />
+
         <View style={styles.main_container_style}>
             <Text style={styles.title_style}>{strings.login_title}</Text>
             <Text style={styles.subtitle_style}>{strings.login_subtitle}</Text>
-        </View>
 
-        <View style={styles.options_container_style}>
-            <Text style={styles.text_style} onPress={FacebookLogin}>{strings.login_facebook}</Text>
-            <Text style={styles.text_style} onPress={GoogleLogin}>{strings.login_google}</Text>
+            <View style = {styles.hyperlinks_view}>
+              <Text
+                style={styles.hyperlink_style}
+                onPress={() => Linking.openURL('https://nofarim.flycricket.io/terms.html')}>{strings.terms}
+              </Text>
+
+              <Text
+                style={styles.hyperlink_style}
+                onPress={() => Linking.openURL('https://nofarim.flycricket.io/privacy.html')}>{strings.privacy}
+              </Text>
+            </View>
+            
+            <View style = {styles.bottom_section}>
+              <LoginButton
+                  borderStyle={styles.leftButtonStyle}
+                  title={strings.login_facebook}
+                  icon ={require('../assets/facebook.png')}
+                  onPress={FacebookLogin}/>
+
+              <LoginButton
+                  borderStyle={styles.rightButtonStyle}
+                  title={strings.login_google}
+                  icon = {require('../assets/google.png')}
+                  onPress={GoogleLogin}/>
+            </View>
         </View>
     </View>
   );
 }
 
 const styles = StyleSheet.create({
-title_style: {
-    fontSize:32,
-    marginBottom:16,
-    fontFamily: "Assistant-Bold"
-},
-subtitle_style: {
-    fontSize:28,
-},
-text_style: { 
-    alignItems: 'center',
-    justifyContent: 'center',
-    fontSize:24,
-    margin:15,
-    padding:10,
-    borderRadius:15,
-    backgroundColor:'white',
-},
-subtext_style: {
-    alignItems: 'center',
-    justifyContent: 'center',
-    marginBottom:10,
-    fontSize:18,
-},
-view_style: {
-    flex: 4,
-    padding: 30,
-    backgroundColor:'steelblue',
-    alignItems: 'center',
-    justifyContent: 'center',
+  view_style: {
+    flex: 1,
+    flexDirection:'column',
+    backgroundColor:Colors.dark_purple,
   },
 
-main_container_style: {
-    flex:2,
+  top_section: {
+    flex:0.3,
+  },
+
+  main_container_style: {
+    flex:0.7,
 },
 
-options_container_style: {
-    flex: 2,
-    alignItems: 'center',
-    justifyContent: 'center',
+title_style: {
+    fontSize:40,
+    margin:16,
+    fontFamily: "Assistant-Bold",
+    color:Colors.white,
+},
+
+subtitle_style: {
+    fontSize:24,
+    marginLeft:16,
+    marginRight:16,
+    color:Colors.white,
+    fontFamily: "Assistant-Regular",
+},
+
+hyperlinks_view: {
+  flexDirection:'row-reverse',
+  margin:16,
+},
+
+hyperlink_style:{
+  fontFamily: "Assistant-Regular",
+  fontSize:12,
+  color:Colors.white,
+  borderBottomColor: Colors.white,
+  borderBottomWidth: 1,
+},
+
+bottom_section:{
+  flex:1,
+  flexDirection:'row-reverse',
+  alignItems:'flex-end',
+  justifyContent:'space-between'
+},
+leftButtonStyle:{
+  borderTopLeftRadius:20,
+},
+rightButtonStyle:{
+  borderTopRightRadius:20,
 },
 });
 

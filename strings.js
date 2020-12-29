@@ -1,5 +1,7 @@
 export const login_title = "ברוכים הבאים לנופרים";
 export const login_subtitle = "יחד נהפוך את השכונה לקהילה";
+export const terms = "תנאי שימוש ";
+export const privacy = "ומדיניות פרטיות";
 export const login_facebook = "כניסה עם פייסבוק";
 export const login_google = "כניסה עם גוגל";
 

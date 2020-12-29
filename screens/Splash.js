@@ -2,15 +2,20 @@ import React, {useEffect} from 'react';
 import { StyleSheet, View } from 'react-native';
 import store from '../authStore';
 import * as constants from '../constants';
+import {hideNavigationBar,showNavigationBar ,changeNavigationBarColor} from 'react-native-navigation-bar-color';
 
 const Splash = (props) => {
 
   useEffect(() => {
     if(store.getState().loggedin) {
       props.navigation.navigate(constants.screen_main)
+      showNavigationBar()
+      changeNavigationBarColor('#80b3ff', true);
     }
     else {
       props.navigation.navigate(constants.screen_login)
+      hideNavigationBar()
+
     }
   }, [])
     
