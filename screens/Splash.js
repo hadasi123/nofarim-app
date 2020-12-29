@@ -9,13 +9,9 @@ const Splash = (props) => {
   useEffect(() => {
     if(store.getState().loggedin) {
       props.navigation.navigate(constants.screen_main)
-      showNavigationBar()
-      changeNavigationBarColor('#80b3ff', true);
     }
     else {
       props.navigation.navigate(constants.screen_login)
-      hideNavigationBar()
-
     }
   }, [])
     

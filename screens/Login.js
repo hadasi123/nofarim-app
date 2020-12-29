@@ -9,6 +9,9 @@ import * as constants from '../constants';
 import {StackActions } from '@react-navigation/native';
 import Colors from '../design';
 import LoginButton from '../components/LoginButton';
+import TopSection from '../assets/login_top.svg';
+import FacebookLogo from '../assets/facebook.svg';
+import GoogleLogo from '../assets/google.svg';
 
 const Login = (props) => {
     
@@ -136,7 +139,7 @@ const Login = (props) => {
   return (
     <View style={styles.view_style}>
 
-      <Image style={styles.top_section} source={require('../assets/login_top.png')} />
+      <TopSection style={styles.top_section}/>
 
         <View style={styles.main_container_style}>
             <Text style={styles.title_style}>{strings.login_title}</Text>
@@ -158,13 +161,13 @@ const Login = (props) => {
               <LoginButton
                   borderStyle={styles.leftButtonStyle}
                   title={strings.login_facebook}
-                  icon ={require('../assets/facebook.png')}
+                  icon ={<FacebookLogo style={styles.icon}></FacebookLogo>}
                   onPress={FacebookLogin}/>
 
               <LoginButton
                   borderStyle={styles.rightButtonStyle}
                   title={strings.login_google}
-                  icon = {require('../assets/google.png')}
+                  icon = {<GoogleLogo style={styles.icon}></GoogleLogo>}
                   onPress={GoogleLogin}/>
             </View>
         </View>
@@ -180,15 +183,16 @@ const styles = StyleSheet.create({
   },
 
   top_section: {
-    flex:0.3,
+    flex:0.1,
   },
 
   main_container_style: {
-    flex:0.7,
+    flex:1,
 },
 
 title_style: {
     fontSize:40,
+    paddingTop:40,
     margin:16,
     fontFamily: "Assistant-Bold",
     color:Colors.white,
@@ -221,11 +225,16 @@ bottom_section:{
   alignItems:'flex-end',
   justifyContent:'space-between'
 },
+
 leftButtonStyle:{
   borderTopLeftRadius:20,
 },
 rightButtonStyle:{
   borderTopRightRadius:20,
+},
+icon: {
+  width:30,
+  height:30,
 },
 });
 

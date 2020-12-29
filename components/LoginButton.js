@@ -7,7 +7,7 @@ const LoginButton = (props) => {
     const {onPress, title, icon, borderStyle} = props;
     return (
             <TouchableOpacity style={[styles.button_view, {...borderStyle}]} onPress={onPress}>
-                <Image style={styles.icon} source={icon} />
+                {icon}
                 <Text style={styles.text}>  {title}</Text>
             </TouchableOpacity>
     )
@@ -28,10 +28,7 @@ const styles = {
         fontSize: 16,
         textAlign: 'center',
     },
-    icon: {
-        width:30,
-        height:30,
-    },
+    
 };
 
 export default LoginButton;
