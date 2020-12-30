@@ -28,7 +28,7 @@ const MyNavigation = () => {
         <RootStack.Screen name={constants.screen_hazard_report} component={HazardAlert} />
         <RootStack.Screen name={constants.screen_main_professionals} component={Professionals} />
         <RootStack.Screen name={constants.screen_settings} component={Settings} />
-        <RootStack.Screen name={constants.screen_updates} component={Updates} />
+        <RootStack.Screen name={constants.screen_updates} component={Updates} options={{headerShown: false}} />
         <RootStack.Screen name={constants.screen_list_pros}
                           component={ListOfProfessionals}
                           options={({ route }) => ({ title: route.params.category })}/>
