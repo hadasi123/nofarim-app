@@ -9,7 +9,7 @@ import * as constants from '../constants';
 import {StackActions } from '@react-navigation/native';
 import Colors from '../design';
 import LoginButton from '../components/LoginButton';
-import LoginTop from '../assets/login_top.svg';
+import TopSection from '../assets/login_top.svg';
 import FacebookLogo from '../assets/facebook.svg';
 import GoogleLogo from '../assets/google.svg';
 
@@ -139,7 +139,7 @@ const Login = (props) => {
   return (
     <View style={styles.view_style}>
 
-      <LoginTop style={styles.top_section}/>
+      <TopSection style={styles.top_section}/>
 
         <View style={styles.main_container_style}>
             <Text style={styles.title_style}>{strings.login_title}</Text>

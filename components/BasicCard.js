@@ -1,19 +1,43 @@
 import React from 'react';
-import {Text,TouchableOpacity, View} from 'react-native';
+import {Text, View,TouchableWithoutFeedback } from 'react-native';
 import Colors from '../design';
+import ViewMoreText from 'react-native-view-more-text';
 
 const BasicCard = (props) => {
 
     const {title, icon, date, text} = props;
+
+    const renderViewMore = (onPress) => {
+        return(
+        <TouchableWithoutFeedback onPress={onPress}>
+          <Text style={styles.expand_collapse}>הרחבה</Text>
+        </TouchableWithoutFeedback >
+        )
+    }
+    
+      const  renderViewLess = (onPress) => {
+          return(
+            <TouchableWithoutFeedback  onPress={onPress}>
+            <Text style={styles.expand_collapse} >צמצום</Text>
+            </TouchableWithoutFeedback >
+          )
+      }
+
     return (
-        <TouchableOpacity style={styles.base_style} >
-            <View style= {styles.header}>
+        <View style={styles.base_style} >
+            {title && <View style= {styles.header}>
                 {icon}
                 <Text style={styles.title}>  {title}</Text>
                 <Text style={styles.date}>  {date}</Text>
-            </View>
-            <Text style={styles.text}>  {text}</Text>
-        </TouchableOpacity>
+            </View>}
+            <ViewMoreText
+                numberOfLines={3}
+                renderViewMore={renderViewMore}
+                renderViewLess={renderViewLess}
+                textStyle={{textAlign: 'right'}}>
+                <Text>{text}</Text>
+          </ViewMoreText>
+        </View>
     )
 };
 
@@ -21,13 +45,13 @@ const styles = {
     base_style : {
     flexDirection: 'column',
     alignItems: 'flex-end',
-    margin: 20,
-    padding: 20,
-    backgroundColor: Colors.white,
-    borderRadius:15,
+    backgroundColor: Colors.white
     },
     header: {
-        flexDirection: 'row',
+        flexDirection:"row-reverse",
+        marginBottom:8,
+        alignItems:'center',
+        justifyContent: 'space-between'
     },
     title: {
         color: Colors.black,
@@ -37,12 +61,18 @@ const styles = {
     date: {
         color: Colors.black,
         fontSize: 16,
+        marginTop:4,
         fontFamily: "Assistant-Regular",
     },
     text: {
         color: Colors.black,
         fontSize: 16,
         fontFamily: "Assistant-Regular",
+    },
+    expand_collapse:{
+        color: Colors.black,
+        fontSize: 16,
+        fontFamily: "Assistant-Bold",
     }
 };
 

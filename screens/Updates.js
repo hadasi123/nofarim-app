@@ -1,15 +1,16 @@
 import React, { useEffect, useState } from 'react';
 import { View, StyleSheet, ScrollView } from 'react-native';
 import Accordion from 'react-native-collapsible/Accordion';
-import { TouchableOpacity } from 'react-native-gesture-handler';
+import { TouchableWithoutFeedback } from 'react-native-gesture-handler';
 import { firebase } from '../firebase/config';
 import BasicTop from '../components/BasicTop';
 import UpdatesIcon from '../assets/updates_icon.svg';
 import AlertIcon from '../assets/alert_icon.svg';
 import * as Strings from '../strings';
 import BasicCard from '../components/BasicCard';
+import * as constants from '../constants';
 
-const Updates = () => {
+const Updates = (props) => {
 
   const updatesCollection = firebase.firestore().collection('updates');
   const [updates,setUpdates] = useState([])
@@ -33,28 +34,18 @@ const Updates = () => {
     fetchUpdates();
   }, [])
      
-  const _renderSectionTitle = section => {
-    return (
-      <View >
-      </View>
-    );
-  };
-     
   const _renderHeader = section => {
     return (
       <BasicCard
         date= {section.date}
         title = {section.title}
-        icon = {AlertIcon}
+        icon = {<AlertIcon></AlertIcon>}
         text = {section.content}/>
     );
   };
      
   const _renderContent = section => {
-    return (
-      <BasicCard
-        text = {section.content}/>
-    );
+    return (<View></View>);
   };
      
   const _updateSections = activeSections => {
@@ -68,24 +59,24 @@ const Updates = () => {
   return (
     <View style={styles.base}>
 
-      <View >
+      <TouchableWithoutFeedback onPress= {()=>props.navigation.navigate(constants.screen_main)}>
         <BasicTop 
           title={Strings.menu_updates}
           icon ={<UpdatesIcon></UpdatesIcon>}
           />
-      </View>
+      </TouchableWithoutFeedback>
 
       <ScrollView style={styles.view_style}>
         {updates &&
-        <Accordion 
+        <Accordion
           sections={updates}
           activeSections={activeSections}
-          renderSectionTitle={_renderSectionTitle}
           renderHeader={_renderHeader}
           renderContent={_renderContent}
+          sectionContainerStyle={styles.section_style}
           onChange={_updateSections}
           expandMultiple={true}
-          touchableComponent={TouchableOpacity}  
+          touchableComponent={TouchableWithoutFeedback}  
         />}
       </ScrollView>
 
@@ -97,20 +88,33 @@ const styles = StyleSheet.create({
 
   base: {
     flex:1,
-    backgroundColor:Colors.dark_purple
+    backgroundColor:Colors.dark_purple,
   },
 
   view_style: {
     flex: 1,
     flexDirection:'column',
     backgroundColor:Colors.dark_purple,
-    marginTop:16,
+    marginTop:36,
   },
 
-  back_button: {
-    position: 'absolute',
-    alignSelf:'flex-start',
+  icon: {
+    width:10,
+    height:10,
   },
+
+  section_style: {
+    flexDirection: 'column',
+    alignItems: 'flex-end',
+    marginTop: 0,
+    marginEnd:20,
+    marginStart:20,
+    marginBottom:20,
+    padding: 20,
+    backgroundColor: Colors.white,
+    borderRadius:15,
+  }
+
 });
 
 export default Updates;
