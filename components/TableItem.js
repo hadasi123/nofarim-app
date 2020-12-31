@@ -1,12 +1,13 @@
 import React from 'react';
-import {Text,TouchableOpacity, Image} from 'react-native';
+import {Text,TouchableOpacity} from 'react-native';
+import Colors from '../design';
 
 const TableItem = (props) => {
 
-    const {onPress, title} = props;
+    const {onPress, title, icon} = props;
     return (
             <TouchableOpacity style={[styles.tableItem]} onPress={onPress}>
-                <Image style={styles.icon} source={require('../assets/favicon.png')} />
+                {icon}
                 <Text style={styles.text}>  {title}</Text>
             </TouchableOpacity>
     )
@@ -15,24 +16,18 @@ const TableItem = (props) => {
 const styles = {
     tableItem : {
         flex: 1,
+        flexDirection: 'column',
         alignItems: 'center',
         justifyContent: 'center',
-        borderTopLeftRadius: 10,
-        borderTopRightRadius: 10,
-        marginLeft:10,
-        marginRight:10,
-        borderBottomLeftRadius: 10,
-        borderBottomRightRadius: 10,
-        backgroundColor: "pink",
+        margin:2,
+        borderRadius:10,
+        backgroundColor: Colors.white,
     },
     text: {
-        color: '#fff',
-        fontSize: 24,
+        color: Colors.black,
+        fontSize: 16,
+        fontFamily: 'Assistant-Regular',
         textAlign: 'center',
-    },
-    icon: {
-        width:50,
-        height:50,
     },
 };
 

@@ -15,16 +15,24 @@ export const menu_updates = 'עדכוני מִנְהֶלֶת';
 export const menu_contactUs = 'יצירת קשר';
 export const menu_report = 'דיווח על מפגע';
 
-export const residents_info = 'מידע לתושב';
-export const about_us = 'מי אנחנו';
+export const main_title = 'קהילת נופרים';
+export const main_services_title = 'מתן שירות';
+export const main_updates_title = 'עדכונים';
+export const main_see_more = 'ראה הכל';
+export const main_giveaway_title = 'למסירה';
+export const main_privacy_policy = 'מדיניות פרטיות';
+export const main_residents_info = 'מידע לתושב';
+export const main_about_us = 'מי אנחנו';
 
 // services
-export const sub_sweets = 'עוגות ומתוקים';
-export const sub_beauty = 'מקצועות היופי';
-export const sub_food = 'אוכל ביתי';
-export const sub_professionals = 'בעלי מקצוע';
-export const sub_others = 'אטרקציות וכל היתר';
-export const sub_childcare = 'טיפול בילדים';
+export const services_beauty = 'טיפוח';
+export const services_food = 'אוכל';
+export const services_professionals = 'תיקונים';
+export const services_sport = 'ספורט';
+export const services_childcare = 'בייביסיטר';
+export const services_school = 'לימודים';
+export const services_community = 'קהילה';
+export const services_others = 'שונות';
 
 // events
 export const past_events = 'אירועים קרובים';

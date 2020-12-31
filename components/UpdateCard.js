@@ -3,7 +3,7 @@ import {Text, View,TouchableWithoutFeedback } from 'react-native';
 import Colors from '../design';
 import ViewMoreText from 'react-native-view-more-text';
 
-const BasicCard = (props) => {
+const UpdateCard = (props) => {
 
     const {title, icon, date, text} = props;
 
@@ -76,4 +76,4 @@ const styles = {
     }
 };
 
-export default BasicCard;
+export default UpdateCard;

@@ -2,7 +2,7 @@ import React from 'react';
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 import ContactUs from '../screens/ContactUs';
-import Home from '../screens/Home';
+import NewHome from '../screens/NewHome';
 import Events from '../screens/Events';
 import HazardAlert from '../screens/HazardAlert';
 import Professionals from '../screens/professionals/Professionals';
@@ -22,7 +22,7 @@ const MyNavigation = () => {
       <RootStack.Navigator>
         <RootStack.Screen name={constants.screen_splash} component={Splash} options={{headerShown: false}}/>
         <RootStack.Screen name={constants.screen_login} component={Login} options={{headerShown: false}}/>
-        <RootStack.Screen name={constants.screen_main} component={Home} options={{headerShown: false}}/>
+        <RootStack.Screen name={constants.screen_main} component={NewHome} options={{headerShown: false}}/>
         <RootStack.Screen name={constants.screen_contact_us} component={ContactUs} />
         <RootStack.Screen name={constants.screen_events} component={Events} />
         <RootStack.Screen name={constants.screen_hazard_report} component={HazardAlert} />

@@ -7,7 +7,7 @@ import BasicTop from '../components/BasicTop';
 import UpdatesIcon from '../assets/updates_icon.svg';
 import AlertIcon from '../assets/alert_icon.svg';
 import * as Strings from '../strings';
-import BasicCard from '../components/BasicCard';
+import UpdateCard from '../components/UpdateCard';
 import * as constants from '../constants';
 
 const Updates = (props) => {
@@ -36,7 +36,7 @@ const Updates = (props) => {
      
   const _renderHeader = section => {
     return (
-      <BasicCard
+      <UpdateCard
         date= {section.date}
         title = {section.title}
         icon = {<AlertIcon></AlertIcon>}
