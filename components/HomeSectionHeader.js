@@ -24,13 +24,16 @@ const styles = {
         flex: 1,
         alignItems: 'flex-end',
         justifyContent:'space-between',       
-        margin:10,
+        marginLeft:20,
+        marginRight:20,
+        marginTop:10,
+        marginBottom:10,
         flexDirection:'row-reverse'
         
     },
     title: {
         color: Colors.white,
-        fontSize: 30,
+        fontSize: 28,
         fontFamily: "Assistant-Bold",
 
     },

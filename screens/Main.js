@@ -9,7 +9,7 @@ import ServicesItemsGrid from '../components/ServicesItemsGrid';
 import UpdateCard from '../components/UpdateCard';
 import AlertIcon from '../assets/alert_icon.svg';
 
-const NewHome = (props) => {
+const Main = (props) => {
 
     return (
     <View style={styles.base_style}>
@@ -46,7 +46,7 @@ const NewHome = (props) => {
             <View style={styles.section_style}>
                 <HomeSectionHeader showMore = {true}
                     title = {strings.main_giveaway_title}
-                    onPress = {() => props.navigation.navigate(constants.screen_main_professionals)}
+                    onPress = {() => props.navigation.navigate(constants.screen_giveaways)}
                 />
                 <View style = {styles.card_style}>
                     <UpdateCard
@@ -58,9 +58,18 @@ const NewHome = (props) => {
             </View>
 
             <View style = {styles.bottom_section_style}>
-                <Text style = {styles.bottom_text_style}>{strings.main_privacy_policy}</Text>
-                <Text style = {styles.bottom_text_style}>{strings.main_residents_info}</Text>
-                <Text style = {styles.bottom_text_style}>{strings.main_about_us}</Text>
+                <Text style = {styles.bottom_text_style}
+                      onPress =  {() => props.navigation.navigate(constants.screen_privacy)}>
+                      {strings.main_privacy_policy}</Text>
+                <View style = { styles.seperator}></View>
+                <Text style = {styles.bottom_text_style}
+                      onPress =  {() => props.navigation.navigate(constants.screen_info)}>
+                      {strings.main_residents_info} </Text>
+                <View style = { styles.seperator}></View>
+                <Text style = {styles.bottom_text_style}
+                      onPress =  {() => props.navigation.navigate(constants.screen_about)}>
+                      {strings.main_about_us}
+                </Text>
             </View>
         </ScrollView>
     </View>
@@ -105,16 +114,21 @@ const styles = StyleSheet.create({
   },
   bottom_section_style: {
     flexDirection: 'row-reverse',
-    justifyContent:'space-evenly',
+    justifyContent:'center',
     marginTop:10,
-    marginBottom:15,
+    marginBottom:20,
   },
   bottom_text_style:{
-      fontFamily:'Assistant-Bold',
-      color:Colors.white,
-      fontSize:12,
+    fontFamily:'Assistant-Bold',
+    color:Colors.white,
+    fontSize:12,
+  },
+  seperator:{
+    borderLeftColor: Colors.white,
+    borderLeftWidth: 1,
+    marginEnd:10,
+    marginStart:10,
   }
-
 });
 
-export default NewHome;
+export default Main;

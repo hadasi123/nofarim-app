@@ -20,6 +20,8 @@ const styles = {
         alignItems: 'center',
         justifyContent: 'center',
         margin:2,
+        paddingTop:5,
+        paddingBottom:5,
         borderRadius:10,
         backgroundColor: Colors.white,
     },

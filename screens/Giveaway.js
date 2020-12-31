@@ -1,10 +1,10 @@
 import React from 'react';
 import {View, StyleSheet} from 'react-native';
-import TableItem from '../../components/TableItem';
-import * as constants from '../../constants';
-import * as strings from '../../strings';
+import TableItem from '../components/TableItem';
+import * as constants from '../constants';
+import * as strings from '../strings';
 
-const Professionals = (props) => {
+const Giveaways = (props) => {
     return (
       <View style={styles.grid_style}>
 
@@ -54,4 +54,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default Professionals;
+export default Giveaways;

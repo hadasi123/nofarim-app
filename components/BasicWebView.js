@@ -2,6 +2,7 @@ import React from 'react';
 import { WebView } from 'react-native-webview';
 import { Text, StyleSheet } from 'react-native';
 import * as strings from '../strings';
+import Colors from '../design';
 
 const renderLoading = () => {
     return (
@@ -9,10 +10,10 @@ const renderLoading = () => {
     )
 }
 
-const ReportWebView = () => {
+const BasicWebView = (props) => {
     return (
       <WebView
-        source={{uri:'https://tiktak-qa.metropolinet.co.il/#!form/201732361158450/15'}}
+        source={props.source}
         renderLoading={renderLoading}
         startInLoadingState/>
     )
@@ -21,7 +22,8 @@ const ReportWebView = () => {
 const styles = StyleSheet.create({
     container: {
     flex:1,
-      color:'blue',
+      color:Colors.dark_purple,
+      fontFamily:'Assistant-Bold',
       fontSize:25,
       alignSelf:'center',
       alignContent:'center',
@@ -29,4 +31,4 @@ const styles = StyleSheet.create({
     }
 })
 
-export default ReportWebView
+export default BasicWebView
