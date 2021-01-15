@@ -50,7 +50,21 @@ const Main = (props) => {
                 />
                 <View style = {styles.card_style}>
                     <UpdateCard
-                    title="הודעת מינהלת - "
+                    title="כסא בר למכירה"
+                    icon={<AlertIcon></AlertIcon>}
+                    date="8/8/2020"
+                    text=" וואי וואי, שמש זורחת מעליי ליי ליי כמו דג במים אני חי חי חי, לפי הקצב של המטקות אני זז ולא חושב יותר מידי וואי וואי וואי, שמש זורחת מעליי ליי ליי כמו דג במים אני חי חי חי, לפי הקצב של המטקות אני זז ולא חושב יותר מידי"/>
+                </View>
+            </View>
+
+            <View style={styles.section_style}>
+                <HomeSectionHeader showMore = {true}
+                    title = {strings.main_lost_and_founds}
+                    onPress = {() => props.navigation.navigate(constants.screen_lost_and_founds)}
+                />
+                <View style = {styles.card_style}>
+                    <UpdateCard
+                    title="אבד כלב בשם טוי"
                     icon={<AlertIcon></AlertIcon>}
                     date="8/8/2020"
                     text=" וואי וואי, שמש זורחת מעליי ליי ליי כמו דג במים אני חי חי חי, לפי הקצב של המטקות אני זז ולא חושב יותר מידי וואי וואי וואי, שמש זורחת מעליי ליי ליי כמו דג במים אני חי חי חי, לפי הקצב של המטקות אני זז ולא חושב יותר מידי"/>

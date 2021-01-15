@@ -1,9 +1,11 @@
 import React from 'react';
-import { Text,View, ScrollView, StyleSheet, TouchableWithoutFeedback } from 'react-native';
+import { Text,View, ScrollView, StyleSheet } from 'react-native';
+import { TouchableWithoutFeedback } from 'react-native-gesture-handler';
 import * as strings from '../strings'
 import BasicTop from '../components/BasicTop';
 import UpdatesIcon from '../assets/updates_icon.svg';
 import Colors from '../design';
+import * as constants from '../constants';
 
 const Info = (props) => {
 
@@ -39,7 +41,9 @@ const styles = StyleSheet.create({
   },
   view_style: {
     flex: 1,
-    margin: 30,
+    margin: 15,
+    paddingRight:15,
+    paddingLeft:15,
     flexDirection:'column',
 
   },

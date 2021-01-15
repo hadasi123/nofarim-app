@@ -1,17 +1,18 @@
 import React,  { useEffect, useState } from 'react';
-import { Text, View, StyleSheet, ScrollView,TouchableWithoutFeedback } from 'react-native';
-import Headline from '../components/Headeline';
+import { View, StyleSheet, ScrollView } from 'react-native';
+import { TouchableWithoutFeedback } from 'react-native-gesture-handler';
 import Accordion from 'react-native-collapsible/Accordion';
 import { TouchableOpacity } from 'react-native-gesture-handler';
 import { firebase } from '../firebase/config';
 import BasicTop from '../components/BasicTop';
-import UpdatesIcon from '../assets/updates_icon.svg';
 import ServiceCard from '../components/ServiceCard';
-import AlertIcon from '../assets/alert_icon.svg';
-
+import * as constants from '../constants';
 
 const ServicesList = (props) => {
 
+  const category = props.route.params.category
+  const listIcon = props.route.params.listIcon
+  const titleIcon = props.route.params.titleIcon
   const professionalsCollection = firebase.firestore().collection('professionals');
   const [professionals,setProfessionals] = useState([])
   const [activeSections, setActiveSections] = useState([])
@@ -20,7 +21,7 @@ const ServicesList = (props) => {
   useEffect(() => {
     const fetchProfessionals = async () => {
       try{
-        const querySnapshot = await professionalsCollection.get()
+        const querySnapshot = await professionalsCollection.where('category', '==', category).get()
         querySnapshot.forEach(function(doc) {
         console.log(doc.id, " => ", doc.data());
               newProfessionals = ( [...newProfessionals,doc.data()]);
@@ -44,13 +45,16 @@ const ServicesList = (props) => {
         <ServiceCard 
           title = {section.title}
           text = {section.content}
-          icon = {<AlertIcon></AlertIcon>}/>
+          icon = {listIcon}/>
       </View>
     );
   };
       
   const _renderContent = section => {
-    return (<View></View>);
+    return (<View style={styles.header}>
+      <ServiceCard 
+        text = {section.description}/>
+    </View>);
   };
       
   const _updateSections = activeSections => {
@@ -66,8 +70,8 @@ const ServicesList = (props) => {
 
     <TouchableWithoutFeedback onPress= {()=>props.navigation.navigate(constants.screen_main)}>
       <BasicTop 
-        title={props.route.params.category}
-        icon ={<UpdatesIcon></UpdatesIcon>}/>
+        title={category}
+        icon ={titleIcon}/>
     </TouchableWithoutFeedback>
 
     <ScrollView style={styles.view_style}>{ professionals &&

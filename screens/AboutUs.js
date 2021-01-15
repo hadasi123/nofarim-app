@@ -1,9 +1,12 @@
 import React from 'react';
-import { Text, View, StyleSheet, TouchableWithoutFeedback } from 'react-native';
+import { Text, View, StyleSheet } from 'react-native';
+import { TouchableWithoutFeedback } from 'react-native-gesture-handler';
 import * as strings from '../strings'
 import BasicTop from '../components/BasicTop';
 import UpdatesIcon from '../assets/updates_icon.svg';
 import Colors from '../design';
+import * as constants from '../constants';
+
 
 const AboutUs = (props) => {
 

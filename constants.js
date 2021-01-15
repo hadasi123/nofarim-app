@@ -10,3 +10,4 @@ export const screen_about = 'מי אנחנו';
 export const screen_info = 'מידע לתושב';
 export const screen_privacy = 'מדיניות פרטיות';
 export const screen_hazard_report = 'דיווח על מפגע';
+export const screen_lost_and_founds ='השבת אבידה';

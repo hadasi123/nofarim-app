@@ -3,9 +3,8 @@ import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 import AboutUs from '../screens/AboutUs';
 import Main from '../screens/Main';
-import Events from '../screens/Events';
 import HazardAlert from '../screens/HazardAlert';
-import Giveaways from '../screens/Giveaway';
+import MarketPlace from '../screens/MarketPlace';
 import ServicesList from '../screens/ServicesList';
 import Settings from '../screens/Settings';
 import Updates from '../screens/Updates';
@@ -13,6 +12,7 @@ import Login from '../screens/Login';
 import Splash from '../screens/Splash';
 import Info from '../screens/Info';
 import PrivacyPolicy from '../screens/PrivacyPolicy';
+import LostAndFounds from '../screens/LostAndFounds';
 
 import * as constants from '../constants';
 import {StyleSheet} from 'react-native';
@@ -29,10 +29,9 @@ const MyNavigation = () => {
         <RootStack.Screen name={constants.screen_about} component={AboutUs} options={{headerShown: false}}/>
         <RootStack.Screen name={constants.screen_info} component={Info} options={{headerShown: false}}/>
         <RootStack.Screen name={constants.screen_privacy} component={PrivacyPolicy} options={{headerShown: false}}/>
-
-        <RootStack.Screen name={constants.screen_events} component={Events} />
         <RootStack.Screen name={constants.screen_hazard_report} component={HazardAlert} />
-        <RootStack.Screen name={constants.screen_giveaways} component={Giveaways} />
+        <RootStack.Screen name={constants.screen_lost_and_founds} component={LostAndFounds} options={{headerShown: false}}/>
+        <RootStack.Screen name={constants.screen_giveaways} component={MarketPlace} options={{headerShown: false}}/>
         <RootStack.Screen name={constants.screen_settings} component={Settings} />
         <RootStack.Screen name={constants.screen_updates} component={Updates} options={{headerShown: false}} />
         <RootStack.Screen name={constants.screen_list_pros}
