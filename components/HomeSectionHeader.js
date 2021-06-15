@@ -1,7 +1,7 @@
 import React from 'react';
 import {Text,TouchableOpacity, View} from 'react-native';
 import MoreIcon from '../assets/more_arrow.svg';
-import Colors from '../design';
+import Colors from '../design/colors';
 import * as strings from '../strings'
 
 const HomeSectionHeader = (props) => {

@@ -21,10 +21,12 @@
     "firebase": "^8.1.2",
     "react": "16.13.1",
     "react-native": "0.63.3",
+    "react-native-animated-pagination-dots": "^0.1.72",
     "react-native-collapsible": "^1.5.3",
     "react-native-fbsdk": "^3.0.0",
     "react-native-gesture-handler": "^1.9.0",
     "react-native-navigation-bar-color": "^2.0.1",
+    "react-native-pager-view": "^5.2.0",
     "react-native-push-notification": "^7.0.0",
     "react-native-reanimated": "^1.13.2",
     "react-native-safe-area-context": "^3.1.9",
@@ -32,7 +34,8 @@
     "react-native-svg": "^12.1.0",
     "react-native-view-more-text": "^2.1.0",
     "react-native-webview": "^11.0.2",
-    "redux": "^4.0.5"
+    "redux": "^4.0.5",
+    "rn-viewpager": "^1.2.9"
   },
   "devDependencies": {
     "@babel/core": "^7.8.4",

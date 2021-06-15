@@ -2,7 +2,7 @@ import React from 'react';
 import { Text, ScrollView, View, StyleSheet } from 'react-native';
 import * as constants from '../constants';
 import * as strings from '../strings';
-import Colors from '../design';
+import Colors from '../design/colors';
 import ProfileIcon from '../assets/profile_icon.svg';
 import HomeSectionHeader from '../components/HomeSectionHeader';
 import ServicesItemsGrid from '../components/ServicesItemsGrid';
@@ -15,7 +15,7 @@ const Main = (props) => {
     <View style={styles.base_style}>
 
         <View style={styles.header}>
-            <ProfileIcon></ProfileIcon>
+            <ProfileIcon  onPress = {() => props.navigation.navigate(constants.screen_add_service)}></ProfileIcon>
             <Text style = {styles.title_style}>{strings.main_title}</Text>
         </View>
 

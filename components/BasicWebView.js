@@ -2,7 +2,7 @@ import React from 'react';
 import { WebView } from 'react-native-webview';
 import { Text, StyleSheet } from 'react-native';
 import * as strings from '../strings';
-import Colors from '../design';
+import Colors from '../design/colors';
 
 const renderLoading = () => {
     return (

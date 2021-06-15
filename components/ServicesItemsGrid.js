@@ -2,7 +2,7 @@ import React from 'react';
 import { View, StyleSheet } from 'react-native';
 import * as constants from '../constants';
 import * as strings from '../strings';
-import Colors from '../design';
+import Colors from '../design/colors';
 import BabysitterIcon from '../assets/babysitter_icon.svg';
 import BeautyIcon from '../assets/beauty_icon.svg';
 import FoodIcon from '../assets/food_icon.svg';
@@ -18,7 +18,7 @@ const ServicesItemsGrid = (props) => {
     return (
 
     <View style={styles.grid_style}>
-
+        
         <View style={styles.row_style}>
             <TableItem
                 title={strings.services_food}
@@ -81,7 +81,7 @@ const ServicesItemsGrid = (props) => {
                         constants.screen_list_pros,
                         {category:strings.services_others,
                             listIcon:<OthersIcon></OthersIcon>,})}/>
-            </View>
+  </View>
   </View>
 )}
 

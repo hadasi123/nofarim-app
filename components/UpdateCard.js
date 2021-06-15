@@ -1,6 +1,6 @@
 import React from 'react';
 import {Text, View,TouchableWithoutFeedback } from 'react-native';
-import Colors from '../design';
+import Colors from '../design/colors';
 import ViewMoreText from 'react-native-view-more-text';
 
 const UpdateCard = (props) => {

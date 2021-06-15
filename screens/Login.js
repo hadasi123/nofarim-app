@@ -7,7 +7,7 @@ import {LoginManager,AccessToken,GraphRequest,GraphRequestManager,} from 'react-
 import store from '../authStore';
 import * as constants from '../constants';
 import {StackActions } from '@react-navigation/native';
-import Colors from '../design';
+import Colors from '../design/colors';
 import LoginButton from '../components/LoginButton';
 import TopSection from '../assets/login_top.svg';
 import FacebookLogo from '../assets/facebook.svg';

@@ -13,7 +13,7 @@ import Splash from '../screens/Splash';
 import Info from '../screens/Info';
 import PrivacyPolicy from '../screens/PrivacyPolicy';
 import LostAndFounds from '../screens/LostAndFounds';
-
+import AddService from '../screens/AddService';
 import * as constants from '../constants';
 import {StyleSheet} from 'react-native';
 
@@ -22,7 +22,7 @@ const RootStack = createStackNavigator();
 const MyNavigation = () => {
   return (
     <NavigationContainer style={styles.view_style}>
-      <RootStack.Navigator>
+      <RootStack.Navigator screenOptions={{headerShown: false}}>
         <RootStack.Screen name={constants.screen_splash} component={Splash} options={{headerShown: false}}/>
         <RootStack.Screen name={constants.screen_login} component={Login} options={{headerShown: false}}/>
         <RootStack.Screen name={constants.screen_main} component={Main} options={{headerShown: false}}/>
@@ -34,6 +34,8 @@ const MyNavigation = () => {
         <RootStack.Screen name={constants.screen_giveaways} component={MarketPlace} options={{headerShown: false}}/>
         <RootStack.Screen name={constants.screen_settings} component={Settings} />
         <RootStack.Screen name={constants.screen_updates} component={Updates} options={{headerShown: false}} />
+
+        <RootStack.Screen name={constants.screen_add_service} component={AddService} options={{headerShown: false}} />
         <RootStack.Screen name={constants.screen_list_pros}
                           component={ServicesList}
                           options={({ route }) => ({ title: route.params.category,headerShown: false })}/>

@@ -1,6 +1,6 @@
 import React from 'react';
 import {Text,View} from 'react-native';
-import Colors from '../design';
+import Colors from '../design/colors';
 import BasicTopSvg from '../assets/basic_top.svg';
 import BackIcon from '../assets/back_icon.svg';
 

@@ -32,7 +32,7 @@ const Updates = (props) => {
       };
     }
     fetchUpdates();
-  }, [])
+  }, []) // indicates that the funciton should only be called once after the screen is loaded
      
   const _renderHeader = section => {
     return (

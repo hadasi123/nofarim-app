@@ -1,12 +1,12 @@
 import React from 'react';
-import {Text,TouchableOpacity, Image} from 'react-native';
+import {Text,TouchableOpacity} from 'react-native';
 import Colors from '../design/colors';
 
-const LoginButton = (props) => {
+const BasicActionButton = (props) => {
 
-    const {onPress, title, icon, borderStyle} = props;
+    const {onPress, title, icon, disabled} = props;
     return (
-            <TouchableOpacity style={[styles.button_view, {...borderStyle}]} onPress={onPress}>
+            <TouchableOpacity style={styles.button_view} onPress={onPress} disabled = {disabled}>
                 {icon}
                 <Text style={styles.text}>  {title}</Text>
             </TouchableOpacity>
@@ -15,20 +15,23 @@ const LoginButton = (props) => {
 
 const styles = {
     button_view : {
-    flexDirection: 'column',
+    flexDirection: 'row',
     justifyContent: 'center',
     alignItems: 'center',
     padding: 20,
-    width:170,
-    height:90,
+    width:120,
+    height:70,
+    borderTopRightRadius:20,
     backgroundColor: Colors.white,
     },
     text: {
         color: Colors.black,
         fontSize: 16,
+        fontFamily: 'Assistant-Bold',
+        padding: 16,
         textAlign: 'center',
     },
     
 };
 
-export default LoginButton;
+export default BasicActionButton;

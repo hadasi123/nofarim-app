@@ -35,6 +35,17 @@ export const services_school = 'לימודים';
 export const services_community = 'קהילה';
 export const services_others = 'שונות';
 
+export const screen_add_service ='הוספת שירות';
+export const next = 'הבא';
+export const input_phone_number = 'מה מספר הטלפון';
+export const input_facebook = 'לינק לפייסבוק';
+export const input_website = 'לינק לאתר האינטרנט';
+export const hint_short_text_allowed = 'טקסט חופשי עד 50 תווים';
+export const hint_long_text_allowed = 'טקסט חופשי עד 250 תווים';
+export const title_service_type= 'מה התחום?';
+export const title_service_contact_details = 'פרטים ליצירת קשר';
+export const sub_service_name = 'שם שירות/חברה';
+export const sub_service_description = 'תיאור השירות';
 // events
 export const past_events = 'אירועים קרובים';
 export const upcoming_events = 'אירועי עבר';

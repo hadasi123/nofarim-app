@@ -2,7 +2,7 @@ import {createStore} from 'redux';
 
 const defaultState = {
     loggedIn:false,
-    email:undefined
+    email:''
 }
 
 function authStore(state = defaultState, action){
@@ -14,7 +14,7 @@ function authStore(state = defaultState, action){
                 return Object.assign(
                     {},
                     state,
-                    {email:action.email, loggedIn:true}
+                    {email:action.user.email, loggedIn:true}
                     )
             }
         case 'LOGOUT_SUCCESS':
@@ -22,7 +22,7 @@ function authStore(state = defaultState, action){
                 return Object.assign(
                     {},
                     state,
-                    {email:undefined, loggedIn:false}
+                    {email:'', loggedIn:false}
                     )
             }
         default:
