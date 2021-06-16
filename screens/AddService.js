@@ -104,10 +104,11 @@ const AddService = (props) => {
       flex: 1,
       flexDirection:'column',
       justifyContent:'center',
+      
     },
     input_view_style: {
       flex: 1,
-      
+
       flexDirection:'column',
       justifyContent:'flex-start',
     },

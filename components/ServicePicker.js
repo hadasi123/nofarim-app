@@ -1,8 +1,6 @@
-import React from 'react';
+import React, {useState} from 'react';
 import { View, StyleSheet } from 'react-native';
-import * as constants from '../constants';
 import * as strings from '../strings';
-import Colors from '../design/colors';
 import BabysitterWhiteIcon from '../assets/babysitter_white.svg';
 import BeautyWhiteIcon from '../assets/beauty_white.svg';
 import FoodWhiteIcon from '../assets/food_white.svg';
@@ -11,64 +9,61 @@ import SportIcon from '../assets/sport_icon.svg';
 import CommunityIcon from '../assets/community_icon.svg';
 import SchoolIcon from '../assets/school_icon.svg';
 import OthersIcon from '../assets/others_icon.svg';
-import FoodTitleIcon from '../assets/food_title.svg';
 import TableItem from './TableItem';
 
 const ServicePicker = () => {
+
+    const [lastItemPicked, setLastItemPicked] = useState(null)
+    const onItemPicked = (lastItemPicked) => {setLastItemPicked(lastItemPicked)}
+
     return (
 
     <View style={styles.grid_style}>
         
-        <View style={styles.row_style} pickerMode = {true}>
+        <View style={styles.row_style}>
             <TableItem
-                pickerMode = {true}
+                onPress={()=>onItemPicked(0)}
+                pickerMode = {lastItemPicked===0 ?false:true}
                 title={strings.services_food}
                 icon = {<FoodWhiteIcon></FoodWhiteIcon>}/>
             <TableItem
-                pickerMode = {true}
+                onPress={()=>onItemPicked(1)}
+                pickerMode = {lastItemPicked===1 ?false:true}
                 title={strings.services_beauty}
-                icon = {<BeautyWhiteIcon></BeautyWhiteIcon>}
-                />
-
+                icon = {<BeautyWhiteIcon></BeautyWhiteIcon>} />
             <TableItem
-                pickerMode = {true}
+                onPress={()=>onItemPicked(2)}
+                pickerMode = {lastItemPicked===2 ?false:true}
                 title={strings.services_childcare}
-                icon = {<BabysitterWhiteIcon></BabysitterWhiteIcon>}
-                 />
- 
+                icon = {<BabysitterWhiteIcon></BabysitterWhiteIcon>} />
             <TableItem
-                pickerMode = {true}
+                onPress={()=>onItemPicked(3)}
+                pickerMode = {lastItemPicked===3 ?false:true}
                 title={strings.services_professionals}
-                icon={<RepairsWhiteIcon></RepairsWhiteIcon>}
-                 />
-
+                icon={<RepairsWhiteIcon></RepairsWhiteIcon>}/>
         </View>
 
         <View style={styles.row_style}>
             <TableItem
-                    pickerMode = {true}
+                onPress={()=>onItemPicked(4)}
+                pickerMode = {lastItemPicked===4 ?false:true}
                     title={strings.services_sport}
-                    icon = {<SportIcon></SportIcon>}
-                     />
-
+                    icon = {<SportIcon></SportIcon>} />
                 <TableItem
-                    pickerMode = {true}
+                onPress={()=>onItemPicked(5)}
+                pickerMode = {lastItemPicked===5 ?false:true}
                     title={strings.services_community}
-                    icon = {<CommunityIcon></CommunityIcon>}
-                     />
-
+                    icon = {<CommunityIcon></CommunityIcon>}/>
                 <TableItem
-                    pickerMode = {true}
+                onPress={()=>onItemPicked(6)}
+                pickerMode = {lastItemPicked===6 ?false:true}
                     title={strings.services_school}
-                    icon = {<SchoolIcon></SchoolIcon>}
-                     />
-
+                    icon = {<SchoolIcon></SchoolIcon>}/>
                 <TableItem
-                    pickerMode = {true}
+                onPress={()=>onItemPicked(7)}
+                pickerMode = {lastItemPicked===7 ?false:true}
                     title={strings.services_others}
-                    icon={<OthersIcon></OthersIcon>}
-                     />
-
+                    icon={<OthersIcon></OthersIcon>}/>
         </View>
   </View>
 )}
