@@ -19,9 +19,27 @@ import * as ServiceData from "../storage/serviceData";
 
 const AddService = (props) => {
 
+  const [service,setService] = useState({})
   const [nextEnabled, setNextEnabled] = useState(false);
   const [currentPage, setCurrentPage] = useState(3);
   const pagerView = useRef(null);
+
+  useEffect(() => {
+    let {type, title, description, phone, facebook, website} = service
+
+    async function checkData() {
+      type = await ServiceData.getServiceKeyValue(constants.service_type)
+      title = await ServiceData.getServiceKeyValue(constants.service_title)
+      description = await ServiceData.getServiceKeyValue(constants.service_description)
+      phone = await ServiceData.getServiceKeyValue(constants.service_phone)
+      facebook = await ServiceData.getServiceKeyValue(constants.service_facebook)
+      website = await ServiceData.getServiceKeyValue(constants.service_website)
+      setService({type, title, description, phone, facebook, website});
+    }
+    checkData();
+
+  },[currentPage])
+
 
   useEffect(() => {
   const backAction = () => {
@@ -30,7 +48,8 @@ const AddService = (props) => {
   };
   const backHandler = BackHandler.addEventListener("hardwareBackPress",backAction);
   return () => backHandler.remove();
-  }, [currentPage]);
+  }, [currentPage,pagerView]);
+
 
   const backNavigation = ()=> {
     if(currentPage===3){
@@ -46,21 +65,44 @@ const AddService = (props) => {
   const callbackFunction = (input_key, text) => {
     setNextEnabled(true);
     ServiceData.storeServiceKeyValue(input_key, text)
-    console.log("key "+input_key+" : "+text);
   };
 
+
   const onNextClicked = () => {
-    //
-    if(currentPage!==0)
-    {
-      pagerView.current.setPage(currentPage - 1);
-      setCurrentPage(currentPage - 1);
-      setNextEnabled(false);
+    console.log("current page: "+currentPage)
+
+    switch(currentPage){
+      case 0:
+        ServiceData.clearData();
+        props.navigation.navigate(constants.screen_main);
+        break;
+      case 1:
+        pagerView.current.setPage(currentPage - 1);
+        setCurrentPage(currentPage - 1);
+        break;
+      case 2:
+        pagerView.current.setPage(currentPage - 1);
+        setCurrentPage(currentPage - 1);
+        if(service.phone===undefined || service.phone==="")
+        {
+          setNextEnabled(false);
+        }
+        break;
+      default:
+        pagerView.current.setPage(currentPage - 1);
+        setCurrentPage(currentPage - 1);
+        console.log(service.title)
+
+        if(service.title===undefined || service.title==="")
+        {
+
+          setNextEnabled(false);
+        }
+        break;
     }
-    else{
-      props.navigation.navigate(constants.screen_main)
-    }
+   
   };
+
 
   const professionalsCollection = firebase
     .firestore()
@@ -91,8 +133,7 @@ const AddService = (props) => {
   return (
     <View style={styles.base}>
       <TouchableWithoutFeedback
-        onPress={() => backNavigation()}
-      >
+        onPress={() => backNavigation()}>
         <BasicTop
           title={strings.screen_add_service}
           icon={<CommunityIcon></CommunityIcon>}
@@ -113,8 +154,8 @@ const AddService = (props) => {
           <Text style={styles.text_style}>{strings.title_service_publish}</Text>
           <View style = {styles.card_style}>
           <ServiceCard
-            title = {"heyy"} //ServiceData.getServiceKeyValue(constants.service_title)
-            text={"blah......."}
+            title = {service.title}
+            text={service.description}
             icon={<CommunityIcon></CommunityIcon>}
           ></ServiceCard>
           </View>
