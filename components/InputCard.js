@@ -3,14 +3,15 @@ import { TextInput, View } from "react-native";
 import Colors from "../design/colors";
 
 const InputCard = (props) => {
-  const [text, onChangeText] = React.useState(null);
+  const [text, onChangeText] = React.useState("");
 
-  const { maxCharacters, hint, inputStyle, icon } = props;
+  const { maxCharacters, hint, inputStyle, parentCallback, input_key } = props;
   return (
     <View style={[styles.base, { ...inputStyle }]}>
       <TextInput
         style={styles.text}
         placeholderTextColor={Colors.light_purple}
+        onEndEditing={() => text !== "" && parentCallback(input_key, text)}
         multiline={true}
         maxLength={maxCharacters}
         onChangeText={onChangeText}

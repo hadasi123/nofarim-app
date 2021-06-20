@@ -12,3 +12,22 @@ export const screen_privacy = "מדיניות פרטיות";
 export const screen_hazard_report = "דיווח על מפגע";
 export const screen_lost_and_founds = "השבת אבידה";
 export const screen_add_service = "הוספת שירות";
+
+export const service_type = '@storage_service_type';
+export const service_title = '@storage_service_title';
+export const service_description = '@storage_service_description';
+export const service_phone = '@storage_service_phone';
+export const service_facebook = '@storage_service_facebook';
+export const service_website = '@storage_service_website';
+
+export const services_beauty = "טיפוח";
+export const services_food = "אוכל";
+export const services_professionals = "מקצוענים";
+export const services_sport = "כושר";
+export const services_childcare = "בייביסיטר";
+export const services_school = "לימודים";
+export const services_community = "קהילה";
+export const services_others = "שונות";
+
+export const service_types = [services_food, services_beauty, services_childcare,
+    services_professionals, services_sport, services_community, services_school, services_others]

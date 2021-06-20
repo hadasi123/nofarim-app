@@ -46,6 +46,8 @@ export const title_service_type = "מה התחום?";
 export const title_service_contact_details = "פרטים ליצירת קשר";
 export const sub_service_name = "שם שירות/חברה";
 export const sub_service_description = "תיאור השירות";
+export const title_service_publish = "רגע לפני פרסום";
+export const publish = "פרסם";
 // events
 export const past_events = "אירועים קרובים";
 export const upcoming_events = "אירועי עבר";

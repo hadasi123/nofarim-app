@@ -6,7 +6,9 @@ const BasicActionButton = (props) => {
   const { onPress, title, icon, disabled } = props;
   return (
     <TouchableOpacity
-      style={styles.button_view}
+      style={
+        disabled ? [styles.button_view, { opacity: 0.5 }] : styles.button_view
+      }
       onPress={onPress}
       disabled={disabled}
     >

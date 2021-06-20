@@ -10,11 +10,13 @@ import CommunityIcon from "../assets/community_icon.svg";
 import SchoolIcon from "../assets/school_icon.svg";
 import OthersIcon from "../assets/others_icon.svg";
 import TableItem from "./TableItem";
+import * as constants from "../constants";
 
-const ServicePicker = () => {
+const ServicePicker = (props) => {
   const [lastItemPicked, setLastItemPicked] = useState(null);
   const onItemPicked = (lastItemPicked) => {
     setLastItemPicked(lastItemPicked);
+    props.parentCallback(props.input_key, constants.service_types[lastItemPicked]);
   };
 
   return (
