@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 import { StyleSheet, View } from "react-native";
-import store from "../authStore";
+import store from "../redux/store";
 import * as constants from "../constants";
 import * as colors from "../design/colors"
 

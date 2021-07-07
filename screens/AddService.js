@@ -5,7 +5,7 @@ import PagerView from "react-native-pager-view";
 import * as ServiceData from "../storage/serviceData";
 import { firebase } from "../firebase/config";
 import * as constants from "../constants";
-import store from "../authStore";
+import store from "../redux/store";
 import * as strings from "../strings";
 import {CommunityIcon, NextIcon } from "../assets";
 import {ServicePicker, ServiceCard, InputCard, BasicActionButton, BasicTop} from "../components";

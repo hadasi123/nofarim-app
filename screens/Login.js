@@ -12,7 +12,7 @@ import {
   GraphRequest,
   GraphRequestManager,
 } from "react-native-fbsdk";
-import store from "../authStore";
+import store from "../redux/store";
 import * as constants from "../constants";
 import { StackActions } from "@react-navigation/native";
 import Colors from "../design/colors";
