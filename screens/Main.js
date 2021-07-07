@@ -1,22 +1,17 @@
 import React, { useEffect } from "react";
 import { Text, ScrollView, View, StyleSheet } from "react-native";
+import changeNavigationBarColor from "react-native-navigation-bar-color";
+import {HomeSectionHeader, ServicesItemsGrid, UpdateCard} from "../components";
 import * as constants from "../constants";
 import * as strings from "../strings";
 import Colors from "../design/colors";
-import ProfileIcon from "../assets/profile_icon.svg";
-import HomeSectionHeader from "../components/HomeSectionHeader";
-import ServicesItemsGrid from "../components/ServicesItemsGrid";
-import UpdateCard from "../components/UpdateCard";
-import AlertIcon from "../assets/alert_icon.svg";
-import changeNavigationBarColor from "react-native-navigation-bar-color";
+import {ProfileIcon, AlertIcon} from "../assets";
 
 const Main = (props) => {
 
   useEffect(()=> {
     changeNavigationBarColor(Colors.black);
   },[]);
-
-
 
   return (
     <View style={styles.base_style}>
@@ -32,8 +27,9 @@ const Main = (props) => {
       <ScrollView style={styles.content_style}>
         <View style={styles.section_style}>
           <HomeSectionHeader
-            showMore={false}
+            add={true}
             title={strings.main_services_title}
+            onPress={() => props.navigation.navigate(constants.screen_add_service)}
           />
           <ServicesItemsGrid navigation={props.navigation}></ServicesItemsGrid>
         </View>
@@ -46,7 +42,7 @@ const Main = (props) => {
           />
           <View style={styles.card_style}>
             <UpdateCard
-              title="הודעת מינהלת - "
+              title={strings.main_updates_subtitle}
               icon={<AlertIcon></AlertIcon>}
               date="8/8/2020"
               text=" וואי וואי, שמש זורחת מעליי ליי ליי כמו דג במים אני חי חי חי, לפי הקצב של המטקות אני זז ולא חושב יותר מידי וואי וואי וואי, שמש זורחת מעליי ליי ליי כמו דג במים אני חי חי חי, לפי הקצב של המטקות אני זז ולא חושב יותר מידי"
@@ -146,8 +142,7 @@ const styles = StyleSheet.create({
     flexDirection: "column",
     alignItems: "flex-end",
     marginTop: 0,
-    marginEnd: 20,
-    marginStart: 20,
+    marginHorizontal: 20,
     marginBottom: 20,
     padding: 20,
     backgroundColor: Colors.white,
@@ -167,8 +162,7 @@ const styles = StyleSheet.create({
   seperator: {
     borderLeftColor: Colors.white,
     borderLeftWidth: 1,
-    marginEnd: 10,
-    marginStart: 10,
+    marginHorizontal: 10,
   },
 });
 

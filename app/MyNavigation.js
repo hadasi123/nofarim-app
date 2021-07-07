@@ -1,19 +1,21 @@
 import React from "react";
 import { NavigationContainer } from "@react-navigation/native";
 import { createStackNavigator } from "@react-navigation/stack";
-import AboutUs from "../screens/AboutUs";
-import Main from "../screens/Main";
-import HazardAlert from "../screens/HazardAlert";
-import MarketPlace from "../screens/MarketPlace";
-import ServicesList from "../screens/ServicesList";
-import Settings from "../screens/Settings";
-import Updates from "../screens/Updates";
-import Login from "../screens/Login";
-import Splash from "../screens/Splash";
-import Info from "../screens/Info";
-import PrivacyPolicy from "../screens/PrivacyPolicy";
-import LostAndFounds from "../screens/LostAndFounds";
-import AddService from "../screens/AddService";
+
+import {AboutUs,
+        Main,
+        HazardAlert, 
+        MarketPlace, 
+        ServicesList, 
+        Settings, 
+        Updates,
+        Login,
+        Splash,
+        Info,
+        PrivacyPolicy,
+        LostAndFounds,
+        AddService } from "../screens";
+
 import * as constants from "../constants";
 import { StyleSheet } from "react-native";
 

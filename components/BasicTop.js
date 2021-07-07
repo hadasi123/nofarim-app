@@ -1,8 +1,7 @@
 import React from "react";
 import { Text, View } from "react-native";
 import Colors from "../design/colors";
-import BasicTopSvg from "../assets/basic_top.svg";
-import BackIcon from "../assets/back_icon.svg";
+import {BasicTopSvg, BackIcon} from "../assets";
 
 const BasicTop = (props) => {
   const { title, icon } = props;

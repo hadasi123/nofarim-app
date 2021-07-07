@@ -1,21 +1,16 @@
 import React, { useRef, useEffect, useState } from "react";
 import { View, StyleSheet, Text, BackHandler, Keyboard, TouchableWithoutFeedback as RNTouchable } from "react-native";
 import { TouchableWithoutFeedback } from "react-native-gesture-handler";
+import PagerView from "react-native-pager-view";
+import * as ServiceData from "../storage/serviceData";
 import { firebase } from "../firebase/config";
-import BasicTop from "../components/BasicTop";
 import * as constants from "../constants";
 import store from "../authStore";
 import * as strings from "../strings";
-import CommunityIcon from "../assets/community_icon.svg";
-import NextIcon from "../assets/next.svg";
-import ServicePicker from "../components/ServicePicker";
-import ServiceCard from "../components/ServiceCard";
+import {CommunityIcon, NextIcon } from "../assets";
+import {ServicePicker, ServiceCard, InputCard, BasicActionButton, BasicTop} from "../components";
 import Colors from "../design/colors";
 import FontSizes from "../design/textSizes";
-import BasicActionButton from "../components/BasicActionButton";
-import PagerView from "react-native-pager-view";
-import InputCard from "../components/InputCard";
-import * as ServiceData from "../storage/serviceData";
 
 const AddService = (props) => {
 
@@ -36,7 +31,6 @@ const AddService = (props) => {
       website = await ServiceData.getServiceKeyValue(constants.service_website)
       setService({category, title, description, phone, facebook, website});
       console.log("***service data: "+category+" "+title+" "+description+" "+phone+" "+facebook+" "+website+"***")
-
     }
     checkData();
     pagerView.current.setPage(currentPage)
@@ -70,7 +64,6 @@ const AddService = (props) => {
     ServiceData.storeServiceKeyValue(input_key, text)
     }
   };
-
 
   const onNextClicked = () => {
     console.log("current page: "+currentPage)
@@ -130,8 +123,7 @@ const AddService = (props) => {
         initialPage={3}
         ref={pagerView}
         showPageIndicator = {false}
-        scrollEnabled={false}
-        
+        scrollEnabled={false}  
       >
         <View key="1" style={styles.input_view_style}>
           <Text style={styles.text_style}>{strings.title_service_publish}</Text>

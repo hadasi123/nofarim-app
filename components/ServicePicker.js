@@ -1,19 +1,22 @@
 import React, { useState } from "react";
 import { View, StyleSheet } from "react-native";
 import * as strings from "../strings";
-import BabysitterWhiteIcon from "../assets/babysitter_white.svg";
-import BeautyWhiteIcon from "../assets/beauty_white.svg";
-import FoodWhiteIcon from "../assets/food_white.svg";
-import RepairsWhiteIcon from "../assets/repairs_white.svg";
-import SportIcon from "../assets/sport_icon.svg";
-import CommunityIcon from "../assets/community_icon.svg";
-import SchoolIcon from "../assets/school_icon.svg";
-import OthersIcon from "../assets/others_icon.svg";
+import {BabysitterWhiteIcon,
+        BeautyWhiteIcon,
+        FoodWhiteIcon,
+        RepairsWhiteIcon,
+        SportIcon,
+        SchoolIcon,
+        OthersIcon,
+        CommunityIcon} from "../assets";
+
 import TableItem from "./TableItem";
 import * as constants from "../constants";
 
 const ServicePicker = (props) => {
+
   const [lastItemPicked, setLastItemPicked] = useState(null);
+  
   const onItemPicked = (lastItemPicked) => {
     setLastItemPicked(lastItemPicked);
     props.parentCallback(props.input_key, constants.service_types[lastItemPicked]);

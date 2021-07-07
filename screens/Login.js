@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-import { Text, View, StyleSheet, Image, Linking } from "react-native";
+import { Text, View, StyleSheet, Linking } from "react-native";
 import * as strings from "../strings";
 import {
   GoogleSignin,
@@ -16,10 +16,8 @@ import store from "../authStore";
 import * as constants from "../constants";
 import { StackActions } from "@react-navigation/native";
 import Colors from "../design/colors";
-import LoginButton from "../components/LoginButton";
-import TopSection from "../assets/login_top.svg";
-import FacebookLogo from "../assets/facebook.svg";
-import GoogleLogo from "../assets/google.svg";
+import {LoginButton} from "../components";
+import {TopSection, FacebookLogo, GoogleLogo} from "../assets";
 
 const Login = (props) => {
   var state = store.getState();
@@ -73,38 +71,6 @@ const Login = (props) => {
       props.navigation.navigate(constants.screen_main);
     }
   }
-
-  const GoogleLogout = async () => {
-    try {
-      await GoogleSignin.revokeAccess();
-      await GoogleSignin.signOut();
-      await auth()
-        .signOut()
-        .then(() =>
-          store.dispatch({
-            type: "LOGOUT_SUCCESS",
-          })
-        );
-    } catch (error) {
-      console.error(error);
-    }
-  };
-
-  const FacebookLogout = async () => {
-    try {
-      LoginManager.logOut();
-      await auth()
-        .signOut()
-        .then(() =>
-          store.dispatch({
-            type: "LOGOUT_SUCCESS",
-          })
-        );
-    } catch (error) {
-      console.error(error);
-    }
-  };
-
   const getInfoFromToken = (token) => {
     const PROFILE_REQUEST_PARAMS = {
       fields: {
@@ -224,8 +190,7 @@ const styles = StyleSheet.create({
 
   subtitle_style: {
     fontSize: 24,
-    marginLeft: 16,
-    marginRight: 16,
+    marginHorizontal: 16,
     color: Colors.white,
     fontFamily: "Assistant-Regular",
   },

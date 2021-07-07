@@ -3,15 +3,15 @@ import { View, StyleSheet } from "react-native";
 import * as constants from "../constants";
 import * as strings from "../strings";
 import Colors from "../design/colors";
-import BabysitterIcon from "../assets/babysitter_icon.svg";
-import BeautyIcon from "../assets/beauty_icon.svg";
-import FoodIcon from "../assets/food_icon.svg";
-import RepairsIcon from "../assets/repairs_icon.svg";
-import SportIcon from "../assets/sport_icon.svg";
-import CommunityIcon from "../assets/community_icon.svg";
-import SchoolIcon from "../assets/school_icon.svg";
-import OthersIcon from "../assets/others_icon.svg";
-import FoodTitleIcon from "../assets/food_title.svg";
+import {    SportIcon,
+            SchoolIcon,
+            OthersIcon,
+            BabysitterIcon,
+            BeautyIcon,
+            FoodIcon,
+            RepairsIcon,
+            CommunityIcon,
+            FoodTitleIcon} from "../assets";
 import TableItem from "./TableItem";
 
 const ServicesItemsGrid = (props) => {

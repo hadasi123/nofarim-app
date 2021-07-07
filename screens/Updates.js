@@ -3,11 +3,9 @@ import { View, StyleSheet, ScrollView } from "react-native";
 import Accordion from "react-native-collapsible/Accordion";
 import { TouchableWithoutFeedback } from "react-native-gesture-handler";
 import { firebase } from "../firebase/config";
-import BasicTop from "../components/BasicTop";
-import UpdatesIcon from "../assets/updates_icon.svg";
-import AlertIcon from "../assets/alert_icon.svg";
+import {BasicTop,UpdateCard}  from "../components";
+import {UpdatesIcon, AlertIcon} from "../assets";
 import * as Strings from "../strings";
-import UpdateCard from "../components/UpdateCard";
 import * as constants from "../constants";
 
 const Updates = (props) => {
@@ -30,7 +28,7 @@ const Updates = (props) => {
       }
     };
     fetchUpdates();
-  }, []); // indicates that the funciton should only be called once after the screen is loaded
+  }, []);
 
   const _renderHeader = (section) => {
     return (
@@ -89,25 +87,21 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: Colors.dark_purple,
   },
-
   view_style: {
     flex: 1,
     flexDirection: "column",
     backgroundColor: Colors.dark_purple,
     marginTop: 36,
   },
-
   icon: {
     width: 10,
     height: 10,
   },
-
   section_style: {
     flexDirection: "column",
     alignItems: "flex-end",
     marginTop: 0,
-    marginEnd: 20,
-    marginStart: 20,
+    marginHorizontal: 20,
     marginBottom: 20,
     padding: 20,
     backgroundColor: Colors.white,

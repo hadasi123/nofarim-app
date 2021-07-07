@@ -3,11 +3,9 @@ import { View, StyleSheet, ScrollView } from "react-native";
 import Accordion from "react-native-collapsible/Accordion";
 import { TouchableWithoutFeedback } from "react-native-gesture-handler";
 import { firebase } from "../firebase/config";
-import BasicTop from "../components/BasicTop";
-import LostAndFoundsIcon from "../assets/updates_icon.svg";
-import AlertIcon from "../assets/alert_icon.svg";
+import {BasicTop, UpdateCard} from "../components";
+import {LostAndFoundsIcon,AlertIcon} from "../assets";
 import * as Strings from "../strings";
-import UpdateCard from "../components/UpdateCard";
 import * as constants from "../constants";
 
 const LostAndFounds = (props) => {
@@ -98,18 +96,15 @@ const styles = StyleSheet.create({
     backgroundColor: Colors.dark_purple,
     marginTop: 36,
   },
-
   icon: {
     width: 10,
     height: 10,
   },
-
   section_style: {
     flexDirection: "column",
     alignItems: "flex-end",
     marginTop: 0,
-    marginEnd: 20,
-    marginStart: 20,
+    marginHorizontal: 20,
     marginBottom: 20,
     padding: 20,
     backgroundColor: Colors.white,

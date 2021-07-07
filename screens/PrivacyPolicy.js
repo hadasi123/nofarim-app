@@ -1,8 +1,5 @@
 import React from "react";
-import { Text, View, StyleSheet, TouchableWithoutFeedback } from "react-native";
-import * as strings from "../strings";
-import BasicTop from "../components/BasicTop";
-import UpdatesIcon from "../assets/updates_icon.svg";
+import {StyleSheet } from "react-native";
 import Colors from "../design/colors";
 import BasicWebView from "../components/BasicWebView";
 

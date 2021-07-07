@@ -4,8 +4,7 @@ import { TouchableWithoutFeedback } from "react-native-gesture-handler";
 import Accordion from "react-native-collapsible/Accordion";
 import { TouchableOpacity } from "react-native-gesture-handler";
 import { firebase } from "../firebase/config";
-import BasicTop from "../components/BasicTop";
-import ServiceCard from "../components/ServiceCard";
+import {BasicTop, ServiceCard} from "../components";
 import * as constants from "../constants";
 
 const ServicesList = (props) => {

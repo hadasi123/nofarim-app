@@ -2,7 +2,7 @@ import React from "react";
 import { Text, View, StyleSheet } from "react-native";
 import { TouchableWithoutFeedback } from "react-native-gesture-handler";
 import * as strings from "../strings";
-import BasicTop from "../components/BasicTop";
+import {BasicTop} from "../components";
 import UpdatesIcon from "../assets/updates_icon.svg";
 import Colors from "../design/colors";
 import * as constants from "../constants";

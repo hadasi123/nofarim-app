@@ -33,8 +33,7 @@ const styles = {
     flex: 1,
     borderRadius: 10,
     margin: 2,
-    paddingTop: 5,
-    paddingBottom: 5,
+    paddingVertical: 5,
   },
   picker_table_item: {
     borderColor: Colors.white,
