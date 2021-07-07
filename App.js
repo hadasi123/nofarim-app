@@ -1,5 +1,5 @@
 import "react-native-gesture-handler";
-import React from "react";
+import React, { useEffect } from "react";
 import MyNavigation from "./app/MyNavigation";
 import RemotePushController from "./firebase/RemotePushController";
 import { View, StyleSheet, StatusBar } from "react-native";

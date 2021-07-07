@@ -13,7 +13,7 @@ export const screen_hazard_report = "דיווח על מפגע";
 export const screen_lost_and_founds = "השבת אבידה";
 export const screen_add_service = "הוספת שירות";
 
-export const service_type = '@storage_service_type';
+export const service_category = '@storage_service_category';
 export const service_title = '@storage_service_title';
 export const service_description = '@storage_service_description';
 export const service_phone = '@storage_service_phone';

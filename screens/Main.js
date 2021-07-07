@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { Text, ScrollView, View, StyleSheet } from "react-native";
 import * as constants from "../constants";
 import * as strings from "../strings";
@@ -8,8 +8,16 @@ import HomeSectionHeader from "../components/HomeSectionHeader";
 import ServicesItemsGrid from "../components/ServicesItemsGrid";
 import UpdateCard from "../components/UpdateCard";
 import AlertIcon from "../assets/alert_icon.svg";
+import changeNavigationBarColor from "react-native-navigation-bar-color";
 
 const Main = (props) => {
+
+  useEffect(()=> {
+    changeNavigationBarColor(Colors.black);
+  },[]);
+
+
+
   return (
     <View style={styles.base_style}>
       <View style={styles.header}>

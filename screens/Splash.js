@@ -2,11 +2,7 @@ import React, { useEffect } from "react";
 import { StyleSheet, View } from "react-native";
 import store from "../authStore";
 import * as constants from "../constants";
-import {
-  hideNavigationBar,
-  showNavigationBar,
-  changeNavigationBarColor,
-} from "react-native-navigation-bar-color";
+import * as colors from "../design/colors"
 
 const Splash = (props) => {
   useEffect(() => {
@@ -23,7 +19,7 @@ const Splash = (props) => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: "#6529C6",
+    backgroundColor: colors.dark_purple,
     alignItems: "center",
   },
 });

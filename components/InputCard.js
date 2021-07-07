@@ -3,7 +3,7 @@ import { TextInput, View } from "react-native";
 import Colors from "../design/colors";
 
 const InputCard = (props) => {
-  const [text, onChangeText] = React.useState("");
+  const [text, onChangeText] = React.useState(props.text);
 
   const { maxCharacters, hint, inputStyle, parentCallback, input_key } = props;
   return (
