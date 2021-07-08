@@ -32,4 +32,4 @@ export const services_others = "שונות";
 export const service_types = [services_food, services_beauty, services_childcare,
     services_professionals, services_sport, services_community, services_school, services_others]
 
-export const URL = "https://api.openweathermap.org/data/2.5/weather?q=Rosh%20Ha%E2%80%98Ayin&appid=6ea4a1a29ca77ba470ddec048bb064cf";
+export const URL = "https://api.openweathermap.org/data/2.5/weather?q=Rosh%20Ha%E2%80%98Ayin&appid=6ea4a1a29ca77ba470ddec048bb064cf&units=metric&lang=he";

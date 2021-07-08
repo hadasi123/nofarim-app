@@ -1,17 +1,45 @@
-import React, { useEffect } from "react";
+import React, { useEffect,useDispatch, useState } from "react";
 import { Text, ScrollView, View, StyleSheet } from "react-native";
 import changeNavigationBarColor from "react-native-navigation-bar-color";
 import {HomeSectionHeader, ServicesItemsGrid, UpdateCard} from "../components";
 import * as constants from "../constants";
 import * as strings from "../strings";
 import Colors from "../design/colors";
-import {ProfileIcon, AlertIcon} from "../assets";
+import {ProfileIcon, AlertIcon, SunnyIcon} from "../assets";
+import * as Actions from "../redux/actions";
+import store from "../redux/store";
+import axios from 'axios';
+import {URL} from "../constants";
 
 const Main = (props) => {
 
+  const [currentTemp, setCurrentTemp] = useState("-")
+  const [weather, setWeather] = useState("טוען")
+  
   useEffect(()=> {
     changeNavigationBarColor(Colors.black);
+    getWeather();
   },[]);
+
+  const getWeather = async () => {
+    try {
+        const response = await axios.get(URL);
+        if (response.data) {
+
+          let payload = {temp:response.data.main.temp,
+                          description:response.data.weather[0].description}
+            store.dispatch({
+            type: Actions.GET_WEATHER,
+            payload
+          });
+        } else {
+          console.log('Unable to fetch data from the API BASE URL!');
+        }
+      
+    } catch (error) {
+      console.log(error);
+    }
+};
 
   return (
     <View style={styles.base_style}>
@@ -25,6 +53,7 @@ const Main = (props) => {
       </View>
 
       <ScrollView style={styles.content_style}>
+
         <View style={styles.section_style}>
           <HomeSectionHeader
             add={true}
@@ -45,7 +74,7 @@ const Main = (props) => {
               title={strings.main_updates_subtitle}
               icon={<AlertIcon></AlertIcon>}
               date="8/8/2020"
-              text=" וואי וואי, שמש זורחת מעליי ליי ליי כמו דג במים אני חי חי חי, לפי הקצב של המטקות אני זז ולא חושב יותר מידי וואי וואי וואי, שמש זורחת מעליי ליי ליי כמו דג במים אני חי חי חי, לפי הקצב של המטקות אני זז ולא חושב יותר מידי"
+              text={strings.update_place_holder}
             />
           </View>
         </View>
@@ -60,10 +89,10 @@ const Main = (props) => {
           />
           <View style={styles.card_style}>
             <UpdateCard
-              title="כסא בר למכירה"
+              title="כסא בר למכירה "
               icon={<AlertIcon></AlertIcon>}
               date="8/8/2020"
-              text=" וואי וואי, שמש זורחת מעליי ליי ליי כמו דג במים אני חי חי חי, לפי הקצב של המטקות אני זז ולא חושב יותר מידי וואי וואי וואי, שמש זורחת מעליי ליי ליי כמו דג במים אני חי חי חי, לפי הקצב של המטקות אני זז ולא חושב יותר מידי"
+              text={strings.marketplace_place_holder}
             />
           </View>
         </View>
@@ -78,10 +107,10 @@ const Main = (props) => {
           />
           <View style={styles.card_style}>
             <UpdateCard
-              title="אבד כלב בשם טוי"
+              title="אבד כלב בשם במבי "
               icon={<AlertIcon></AlertIcon>}
               date="8/8/2020"
-              text=" וואי וואי, שמש זורחת מעליי ליי ליי כמו דג במים אני חי חי חי, לפי הקצב של המטקות אני זז ולא חושב יותר מידי וואי וואי וואי, שמש זורחת מעליי ליי ליי כמו דג במים אני חי חי חי, לפי הקצב של המטקות אני זז ולא חושב יותר מידי"
+              text={strings.lost_place_holder}
             />
           </View>
         </View>

@@ -25,6 +25,7 @@ import SportIcon from "./sport_icon.svg";
 import SchoolIcon from "./school_icon.svg";
 import OthersIcon from "./others_icon.svg";
 import FoodTitleIcon from "./food_title.svg";
+import SunnyIcon from "./sunny.svg";
 
 export {    ProfileIcon,
             AlertIcon,
@@ -51,4 +52,5 @@ export {    ProfileIcon,
             FoodIcon,
             RepairsIcon,
             FoodTitleIcon,
+            SunnyIcon,
           };

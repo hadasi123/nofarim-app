@@ -194,6 +194,8 @@ dependencies {
       exclude group:'com.facebook.fbjni'
     }
 
+    implementation project(':lottie-react-native')
+    
     implementation 'com.google.firebase:firebase-analytics:18.0.0'
 
     implementation project(':react-native-push-notification')
