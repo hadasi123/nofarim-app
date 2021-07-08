@@ -1,45 +1,17 @@
-import React, { useEffect,useDispatch, useState } from "react";
+import React, { useEffect, } from "react";
 import { Text, ScrollView, View, StyleSheet } from "react-native";
 import changeNavigationBarColor from "react-native-navigation-bar-color";
-import {HomeSectionHeader, ServicesItemsGrid, UpdateCard} from "../components";
+import {HomeSectionHeader, ServicesItemsGrid, UpdateCard, WeatherInfo} from "../components";
 import * as constants from "../constants";
 import * as strings from "../strings";
 import Colors from "../design/colors";
-import {ProfileIcon, AlertIcon, SunnyIcon} from "../assets";
-import * as Actions from "../redux/actions";
-import store from "../redux/store";
-import axios from 'axios';
-import {URL} from "../constants";
+import {ProfileIcon, AlertIcon} from "../assets";
 
 const Main = (props) => {
-
-  const [currentTemp, setCurrentTemp] = useState("-")
-  const [weather, setWeather] = useState("טוען")
-  
+ 
   useEffect(()=> {
     changeNavigationBarColor(Colors.black);
-    getWeather();
   },[]);
-
-  const getWeather = async () => {
-    try {
-        const response = await axios.get(URL);
-        if (response.data) {
-
-          let payload = {temp:response.data.main.temp,
-                          description:response.data.weather[0].description}
-            store.dispatch({
-            type: Actions.GET_WEATHER,
-            payload
-          });
-        } else {
-          console.log('Unable to fetch data from the API BASE URL!');
-        }
-      
-    } catch (error) {
-      console.log(error);
-    }
-};
 
   return (
     <View style={styles.base_style}>
@@ -54,6 +26,12 @@ const Main = (props) => {
 
       <ScrollView style={styles.content_style}>
 
+        <View style={styles.section_style}>
+          <WeatherInfo></WeatherInfo>
+        </View>
+
+
+    
         <View style={styles.section_style}>
           <HomeSectionHeader
             add={true}

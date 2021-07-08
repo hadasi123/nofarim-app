@@ -97,6 +97,9 @@ export const residents_info_content =
 // report hazard
 export const report_loading = "העמוד בטעינה...";
 
+export const temp_loading = "-";
+export const weather_description_loading = "...";
+
 // updates
 export const regular_updates = "עדכונים שוטפים - ";
 export const important_updates = "עדכונים חשובים - ";

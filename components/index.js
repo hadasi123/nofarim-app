@@ -9,7 +9,7 @@ import ServicePicker from "./ServicePicker";
 import ServicesItemsGrid from "./ServicesItemsGrid";
 import TableItem from "./TableItem";
 import UpdateCard from "./UpdateCard";
-
+import WeatherInfo from "./WeatherInfo";
 
 export {    BasicActionButton,
             BasicTop,
@@ -22,4 +22,5 @@ export {    BasicActionButton,
             ServicesItemsGrid,
             TableItem,
             UpdateCard,
+            WeatherInfo,
           };
