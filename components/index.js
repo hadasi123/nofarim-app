@@ -10,6 +10,8 @@ import ServicesItemsGrid from "./ServicesItemsGrid";
 import TableItem from "./TableItem";
 import UpdateCard from "./UpdateCard";
 import WeatherInfo from "./WeatherInfo";
+import Greeting from "./Greeting";
+import Building from "./Building";
 
 export {    BasicActionButton,
             BasicTop,
@@ -23,4 +25,6 @@ export {    BasicActionButton,
             TableItem,
             UpdateCard,
             WeatherInfo,
+            Greeting,
+            Building,
           };

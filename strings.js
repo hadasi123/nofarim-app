@@ -69,30 +69,25 @@ export const contact_us_content =
   "\n" +
   "hadasicohen1@gmail.com";
 
-export const residents_info_content =
-  "19 מגדלי מגורים טובלים בפארק ירוק ובסמוך מתחם ענק של עסקים, משרדים ובילויים." +
-  "19 מגדלי מגורים טובלים בפארק ירוק ובסמוך מתחם ענק של עסקים, משרדים ובילויים." +
-  "19 מגדלי מגורים טובלים בפארק ירוק ובסמוך מתחם ענק של עסקים, משרדים ובילויים." +
-  "19 מגדלי מגורים טובלים בפארק ירוק ובסמוך מתחם ענק של עסקים, משרדים ובילויים." +
-  "\n" +
-  "\n" +
-  "19 מגדלי מגורים טובלים בפארק ירוק ובסמוך מתחם ענק של עסקים, משרדים ובילויים." +
-  "19 מגדלי מגורים טובלים בפארק ירוק ובסמוך מתחם ענק של עסקים, משרדים ובילויים." +
-  "19 מגדלי מגורים טובלים בפארק ירוק ובסמוך מתחם ענק של עסקים, משרדים ובילויים." +
-  "\n" +
-  "\n" +
-  "19 מגדלי מגורים טובלים בפארק ירוק ובסמוך מתחם ענק של עסקים, משרדים ובילויים." +
-  "19 מגדלי מגורים טובלים בפארק ירוק ובסמוך מתחם ענק של עסקים, משרדים ובילויים." +
-  "19 מגדלי מגורים טובלים בפארק ירוק ובסמוך מתחם ענק של עסקים, משרדים ובילויים." +
-  "\n" +
-  "\n" +
-  "19 מגדלי מגורים טובלים בפארק ירוק ובסמוך מתחם ענק של עסקים, משרדים ובילויים." +
-  "19 מגדלי מגורים טובלים בפארק ירוק ובסמוך מתחם ענק של עסקים, משרדים ובילויים." +
-  "19 מגדלי מגורים טובלים בפארק ירוק ובסמוך מתחם ענק של עסקים, משרדים ובילויים." +
-  "19 מגדלי מגורים טובלים בפארק ירוק ובסמוך מתחם ענק של עסקים, משרדים ובילויים." +
-  "\n" +
-  "\n" +
-  "19 מגדלי מגורים טובלים בפארק ירוק ובסמוך מתחם ענק של עסקים, משרדים ובילויים.";
+
+// info
+export const choose_building ="למידע נוסף, בחר בניין";
+export const full_address_title = "כתובת מלאה";
+export const zip_code_title = "מיקוד";
+export const join_whatsapp_group = "להצטרפות לקבוצת הוואטסאפ";
+export const contact_committee_member = "ליצירת קשר עם וועד הבניין";
+export const contact_household_representive = "ליצירת קשר עם חברת הניהול";
+export const nearby_trash_recycler = "פחים ומיחזוריות סמוכות";
+
+export const nahshol = "נחשול";
+export const maayan = "מעיין";
+export const ovadia = "עובדיה יוסף";
+
+export const more_about_title = "רוצה לדעת עוד על";
+export const monicipal_education_facilities = "גנים ובתי ספר";
+export const monicipal_religion_facilities = "מוסדות דת";
+export const public_transportation_info = "תחבורה ציבורית";
+export const sport_and_colture = "תרבות, ספורט ופנאי";
 
 // report hazard
 export const report_loading = "העמוד בטעינה...";
@@ -100,6 +95,12 @@ export const report_loading = "העמוד בטעינה...";
 export const temp_loading = "-";
 export const weather_description_loading = "...";
 
+export const default_greeting = "!שלום";
+export const morning_greeting = "בוקר טוב לך!";
+export const noon_greeting = "צהריים טובים לך!";
+export const afternoon_greeting = "אחר הצהריים טובים לך!";
+export const evening_greeting = "ערב טוב לך!";
+export const night_greeting = "לילה טוב לך!";
 // updates
 export const regular_updates = "עדכונים שוטפים - ";
 export const important_updates = "עדכונים חשובים - ";

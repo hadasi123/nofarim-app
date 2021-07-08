@@ -13,8 +13,12 @@ const WeatherInfo = ()=> {
     const [weather, setWeather] = useState(strings.weather_description_loading)
 
     useEffect(()=> {
+        
         const weatherUpdateInterval = setInterval(
-            () => getWeather() , 60000)
+            () => getWeather() , 60000);
+
+        getWeather();
+
         return () => {
             clearInterval(weatherUpdateInterval)
         }

@@ -1,7 +1,7 @@
 import React, { useEffect, } from "react";
 import { Text, ScrollView, View, StyleSheet } from "react-native";
 import changeNavigationBarColor from "react-native-navigation-bar-color";
-import {HomeSectionHeader, ServicesItemsGrid, UpdateCard, WeatherInfo} from "../components";
+import {HomeSectionHeader, ServicesItemsGrid, UpdateCard, WeatherInfo, Greeting} from "../components";
 import * as constants from "../constants";
 import * as strings from "../strings";
 import Colors from "../design/colors";
@@ -27,6 +27,7 @@ const Main = (props) => {
       <ScrollView style={styles.content_style}>
 
         <View style={styles.section_style}>
+          <Greeting></Greeting>
           <WeatherInfo></WeatherInfo>
         </View>
 
