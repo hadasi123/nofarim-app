@@ -4,7 +4,7 @@ export const screen_main = "תפריט ראשי";
 export const screen_giveaways = "למסירה";
 export const screen_list_pros = "רשימת בעלי מקצוע";
 export const screen_events = "לוח אירועים";
-export const screen_settings = "הגדרות";
+export const screen_profile = "פרופיל";
 export const screen_updates = "עדכוני מינהלת השכונה";
 export const screen_about = "מי אנחנו";
 export const screen_info = "מידע לתושב";
@@ -19,6 +19,7 @@ export const service_description = '@storage_service_description';
 export const service_phone = '@storage_service_phone';
 export const service_facebook = '@storage_service_facebook';
 export const service_website = '@storage_service_website';
+export const service_whatsapp = '@storage_service_whatsapp';
 
 export const services_beauty = "טיפוח";
 export const services_food = "אוכל";

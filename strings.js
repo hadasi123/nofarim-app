@@ -38,8 +38,10 @@ export const services_community = "קהילה";
 export const services_others = "שונות";
 
 export const screen_add_service = "הוספת שירות";
+export const add_service_rules = "חשבונך מוגבל לפרסום שירות אחד בלבד. \n ניתן לשנות או למחוק את השירות שהצעת בכל זמן. \n פרסומים לא נאותים יימחקו לאלתר."
 export const next = "הבא";
 export const input_phone_number = "מה מספר הטלפון";
+export const whatsapp_msg_checkbox = "אפשר לשלוח הודעות וואטסאפ";
 export const input_facebook = "לינק לפייסבוק";
 export const input_website = "לינק לאתר האינטרנט";
 export const hint_short_text_allowed = "טקסט חופשי עד 50 תווים";
@@ -50,6 +52,13 @@ export const sub_service_name = "שם שירות/חברה";
 export const sub_service_description = "תיאור השירות";
 export const title_service_publish = "רגע לפני פרסום";
 export const publish = "פרסם";
+
+export const dial = "חיוג למספר";
+export const send_sms = "שליחת מסרון";
+export const send_whatsapp_msg = "שליחת וואטסאפ";
+export const go_to_facebook_page = "לעמוד הפייסבוק";
+export const go_to_website = "לאתר הבית";
+
 // events
 export const past_events = "אירועים קרובים";
 export const upcoming_events = "אירועי עבר";

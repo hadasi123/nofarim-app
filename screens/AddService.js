@@ -2,6 +2,7 @@ import React, { useRef, useEffect, useState } from "react";
 import { View, StyleSheet, Text, BackHandler, Keyboard, TouchableWithoutFeedback as RNTouchable } from "react-native";
 import { TouchableWithoutFeedback } from "react-native-gesture-handler";
 import PagerView from "react-native-pager-view";
+
 import * as ServiceData from "../storage/serviceData";
 import { firebase } from "../firebase/config";
 import * as constants from "../constants";
@@ -17,10 +18,12 @@ const AddService = (props) => {
   const [service,setService] = useState({})
   const [nextEnabled, setNextEnabled] = useState(false);
   const [currentPage, setCurrentPage] = useState(3);
+  const [toggleCheckBox, setToggleCheckBox] = useState(true)
+
   const pagerView = useRef(null);
 
   useEffect(() => {
-    let {category, title, description, phone, facebook, website} = service
+    let {category, title, description, phone, facebook, website, whatsapp} = service
 
     async function checkData() {
       category = await ServiceData.getServiceKeyValue(constants.service_category)
@@ -29,8 +32,9 @@ const AddService = (props) => {
       phone = await ServiceData.getServiceKeyValue(constants.service_phone)
       facebook = await ServiceData.getServiceKeyValue(constants.service_facebook)
       website = await ServiceData.getServiceKeyValue(constants.service_website)
+      whatsapp = await ServiceData.getServiceKeyValue(constants.service_whatsapp)
       setService({category, title, description, phone, facebook, website});
-      console.log("***service data: "+category+" "+title+" "+description+" "+phone+" "+facebook+" "+website+"***")
+      console.log("***service data: "+category+" "+title+" "+description+" "+phone+" "+facebook+" "+website+" "+whatsapp+"***")
     }
     checkData();
     pagerView.current.setPage(currentPage)
@@ -94,8 +98,8 @@ const AddService = (props) => {
       const timestamp = firebase.firestore.FieldValue.serverTimestamp();
       const user = store.getState();
       const email = user.email;
-      let {category, title, description, phone, facebook, website} = service
-      const data = {category,title,description,phone,facebook,website,
+      let {category, title, description, phone, facebook, website, whatsapp} = service
+      const data = {category,title,description,phone,facebook,website,whatsapp,
         userID: email,
         createdAt: timestamp,
       };
@@ -134,6 +138,7 @@ const AddService = (props) => {
             icon={<CommunityIcon></CommunityIcon>}
           ></ServiceCard>
           </View>
+          <Text style={styles.text_style}>{strings.add_service_rules}</Text>
         </View>
 
         <View key="2" style={styles.input_view_style}>
@@ -148,6 +153,11 @@ const AddService = (props) => {
             input_key = {constants.service_phone}>
             {""}
           </InputCard>
+          <View style={{flexDirection:"row-reverse", justifyContent:"space-between"}}>
+           
+           
+            <Text>{strings.whatsapp_msg_checkbox}</Text>
+          </View>
           <InputCard
             text={service.facebook}
             hint={strings.input_facebook}

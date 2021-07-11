@@ -7,7 +7,7 @@ import {AboutUs,
         HazardAlert, 
         MarketPlace, 
         ServicesList, 
-        Settings, 
+        Profile, 
         Updates,
         Login,
         Splash,
@@ -70,8 +70,8 @@ const MyNavigation = () => {
           options={{ headerShown: false }}
         />
         <RootStack.Screen
-          name={constants.screen_settings}
-          component={Settings}
+          name={constants.screen_profile}
+          component={Profile}
         />
         <RootStack.Screen
           name={constants.screen_updates}

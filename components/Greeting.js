@@ -6,7 +6,7 @@ import Colors from "../design/colors";
 const Greeting = ()=> {
 
     const [currentGreeting, setCurrentGreeting] = useState(strings.default_greeting)
-
+    
     useEffect(()=> {
         updateGreeting();
     },[]);
@@ -22,7 +22,7 @@ const Greeting = ()=> {
             setCurrentGreeting(strings.noon_greeting);
         else if (hours > 16 && hours < 18)
             setCurrentGreeting(strings.afternoon_greeting);
-        else if (hours >= 18 && hours <= 22)
+        else if (hours >= 18 && hours <= 21)
             setCurrentGreeting(strings.evening_greeting);
         else
             setCurrentGreeting(strings.night_greeting);

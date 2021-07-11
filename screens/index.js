@@ -10,7 +10,7 @@ import PrivacyPolicy from "./PrivacyPolicy";
 import ServicesList from "./ServicesList";
 import Splash from "./Splash";
 import Updates from "./Updates"
-import Settings from "./Settings"
+import Profile from "./Profile"
 
 export {    AboutUs,
             AddService,
@@ -24,5 +24,5 @@ export {    AboutUs,
             ServicesList,
             Splash,
             Updates,
-            Settings,
+            Profile,
           };

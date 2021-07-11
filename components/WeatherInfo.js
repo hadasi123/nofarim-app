@@ -14,7 +14,7 @@ const WeatherInfo = ()=> {
 
     useEffect(()=> {
         
-        const weatherUpdateInterval = setInterval(
+        let weatherUpdateInterval = setInterval(
             () => getWeather() , 60000);
 
         getWeather();
