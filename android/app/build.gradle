@@ -202,6 +202,8 @@ dependencies {
 
     implementation project(':react-native-navigation-bar-color')
 
+    implementation 'com.android.support:multidex:1.0.3'
+
     debugImplementation("com.facebook.flipper:flipper-network-plugin:${FLIPPER_VERSION}") {
         exclude group:'com.facebook.flipper'
         exclude group:'com.squareup.okhttp3', module:'okhttp'
