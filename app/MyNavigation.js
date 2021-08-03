@@ -14,7 +14,7 @@ import {AboutUs,
         Info,
         PrivacyPolicy,
         LostAndFounds,
-        AddService } from "../screens";
+        AddServiceMain } from "../screens";
 
 import * as constants from "../constants";
 import { StyleSheet } from "react-native";
@@ -81,7 +81,7 @@ const MyNavigation = () => {
 
         <RootStack.Screen
           name={constants.screen_add_service}
-          component={AddService}
+          component={AddServiceMain}
           options={{ headerShown: false }}
         />
         <RootStack.Screen

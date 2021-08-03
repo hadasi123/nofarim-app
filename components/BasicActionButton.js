@@ -13,7 +13,7 @@ const BasicActionButton = (props) => {
       disabled={disabled}
     >
       {icon}
-      <Text style={styles.text}> {title}</Text>
+      <Text style={styles.text}>{title}</Text>
     </TouchableOpacity>
   );
 };
@@ -23,7 +23,6 @@ const styles = {
     flexDirection: "row",
     justifyContent: "center",
     alignItems: "center",
-    padding: 20,
     width: 120,
     height: 70,
     borderTopRightRadius: 20,

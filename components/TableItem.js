@@ -8,17 +8,15 @@ const TableItem = (props) => {
     <TouchableOpacity
       style={[
         styles.table_item,
-        pickerMode ? styles.picker_table_item : styles.regular_table_item,
+        pickerMode ? styles.picker_table_item : styles.table_item,
       ]}
       onPress={onPress}
     >
       {icon}
       <Text
-        style={[
-          styles.text,
+        style={[styles.text,
           pickerMode ? styles.picker_mode_text : styles.regular_text,
-        ]}
-      >
+        ]}>
         {title}
       </Text>
     </TouchableOpacity>
@@ -32,16 +30,15 @@ const styles = {
     justifyContent: "center",
     flex: 1,
     borderRadius: 10,
-    margin: 2,
+    margin:2,
     paddingVertical: 5,
+    backgroundColor: Colors.white,
+    borderWidth:1,
+    borderColor:Colors.white,
   },
   picker_table_item: {
-    borderColor: Colors.white,
     backgroundColor: Colors.dark_purple,
-    borderWidth: 1,
-  },
-  regular_table_item: {
-    backgroundColor: Colors.white,
+    
   },
   text: {
     fontSize: 16,

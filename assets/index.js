@@ -27,13 +27,20 @@ import SportIcon from "./sport_icon.svg";
 import SchoolIcon from "./school_icon.svg";
 import OthersIcon from "./others_icon.svg";
 import FoodTitleIcon from "./food_title.svg";
-
+import SchoolWhiteIcon from "./school_icon_white.svg";
+import SportWhiteIcon from "./sport_icon_white.svg";
+import CommunityWhiteIcon from "./community_icon_white.svg";
+import OthersWhiteIcon from "./others_icon_white.svg"; 
 import PhoneIcon from "./phoneIcon.svg";
 import WebsiteIcon from "./websiteIcon.svg";
-
+import ServicesIcon from "./service_icon.svg";
 import SunnyIcon from "./sunny.svg";
 
-export {    ProfileIcon,
+export {    SchoolWhiteIcon, 
+            SportWhiteIcon,
+            CommunityWhiteIcon,
+            OthersWhiteIcon,
+            ProfileIcon,
             AlertIcon,
             CommunityIcon,
             NextIcon,
@@ -61,4 +68,5 @@ export {    ProfileIcon,
             SunnyIcon,
             PhoneIcon,
             WebsiteIcon,
+            ServicesIcon,
           };
