@@ -23,6 +23,7 @@ const PhotosPicker = () => {
                  {actions.map(({title, type, options}) => {
                     return (
                     <TouchableOpacity
+                      
                         onPress={() => onButtonPress(type, options)}>
                         <Text style={styles.subtext_style}>{title}</Text>
                     </TouchableOpacity>

@@ -1,10 +1,8 @@
 import React, { useEffect, useState } from "react";
 import { View, StyleSheet, ScrollView } from "react-native";
 import { TouchableWithoutFeedback } from "react-native-gesture-handler";
-import Accordion from "react-native-collapsible/Accordion";
-import { TouchableOpacity } from "react-native-gesture-handler";
 import { firebase } from "../firebase/config";
-import {BasicTop, ServiceCard} from "../components";
+import {BasicTop,CommonCardView} from "../components";
 import * as constants from "../constants";
 
 const ServicesList = (props) => {
@@ -15,7 +13,7 @@ const ServicesList = (props) => {
     .firestore()
     .collection("professionals");
   const [professionals, setProfessionals] = useState([]);
-  const [activeSections, setActiveSections] = useState([]);
+ 
   var newProfessionals = [];
 
   useEffect(() => {
@@ -28,7 +26,7 @@ const ServicesList = (props) => {
           console.log(doc.id, " => ", doc.data());
           newProfessionals = [...newProfessionals, doc.data()];
         });
-        _setProfessionals(newProfessionals);
+        setProfessionals(newProfessionals);
       } catch (error) {
         console.log("Error getting documents: ", error);
       }
@@ -36,61 +34,34 @@ const ServicesList = (props) => {
     fetchProfessionals();
   }, []);
 
-  const _renderSectionTitle = (section) => {
-    return <View></View>;
-  };
-
-  const _renderHeader = (section) => {
-    return (
-      <View style={styles.header}>
-        <ServiceCard
-          title={section.title}
-          text={section.content}
-          icon={listIcon}
-        />
-      </View>
-    );
-  };
-
-  const _renderContent = (section) => {
-    return (
-      <View style={styles.header}>
-        <ServiceCard text={section.description} />
-      </View>
-    );
-  };
-
-  const _updateSections = (activeSections) => {
-    setActiveSections(activeSections);
-  };
-
-  const _setProfessionals = (professionals) => {
-    setProfessionals(professionals);
-  };
-
+  
   return (
     <View style={styles.base}>
       <TouchableWithoutFeedback
-        onPress={() => props.navigation.navigate(constants.screen_main)}
-      >
+        onPress={() => props.navigation.navigate(constants.screen_main)}>
         <BasicTop title={category} icon={titleIcon} />
       </TouchableWithoutFeedback>
 
-      <ScrollView style={styles.view_style}>
-        {professionals && (
-          <Accordion
-            sections={professionals}
-            activeSections={activeSections}
-            renderSectionTitle={_renderSectionTitle}
-            renderHeader={_renderHeader}
-            renderContent={_renderContent}
-            onChange={_updateSections}
-            expandMultiple={true}
-            sectionContainerStyle={styles.section_style}
-            touchableComponent={TouchableOpacity}
-          />
-        )}
-      </ScrollView>
+      {professionals && (
+        <ScrollView style={styles.view_style}>
+        
+          {professionals.map(({title, description, phone, website, facebook, whatsappEnabled}) => {
+            return (
+              <View style={styles.section_style}>
+              <CommonCardView
+              title={title}
+              icon={listIcon}
+              description={description}
+              phone={phone}
+              website={website}
+              facebook={facebook}
+              whatsappEnabled={whatsappEnabled}>
+              </CommonCardView>
+              </View>
+              );
+            })}
+        </ScrollView>
+      )}
     </View>
   );
 };
@@ -105,16 +76,6 @@ const styles = StyleSheet.create({
     flexDirection: "column",
     backgroundColor: Colors.dark_purple,
     marginTop: 36,
-  },
-  content: {
-    justifyContent: "center",
-    paddingStart: 20,
-    paddingEnd: 20,
-  },
-  header: {
-    marginStart: 20,
-    marginEnd: 20,
-    marginTop: 10,
   },
   section_style: {
     flexDirection: "column",

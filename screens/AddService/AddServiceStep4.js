@@ -17,6 +17,9 @@ const AddServiceStep4 = (props) => {
     <ServiceCard
       title = {"service.title"}
       text={"service.description"}
+      phone={""}
+      website={""}
+      facebook={""}
       icon={<CommunityIcon></CommunityIcon>}
     ></ServiceCard>
     </View>

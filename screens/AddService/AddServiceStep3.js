@@ -7,7 +7,6 @@ import * as strings from "../../strings";
 import {InputCard} from "../../components";
 import Colors from "../../design/colors";
 import FontSizes from "../../design/textSizes";
-import PhotosPicker from "../../services/PhotosPicker";
 
 const AddServiceStep3 = (props) => {
 
@@ -26,14 +25,7 @@ const [toggleCheckBox, setToggleCheckBox] = useState(true)
       input_key = {constants.service_phone}>
       {""}
     </InputCard>
-    <View style={{flexDirection:"row-reverse", justifyContent:"flex-start", marginHorizontal:10}}>
-      <CheckBox style={{alignSelf:"center"}}
-      disabled={false}
-      tintColors={{true:Colors.white,false:Colors.white}}
-      value={toggleCheckBox}
-      onValueChange={(newValue) => setToggleCheckBox(newValue)}/>
-      <Text style={{color:Colors.white, fontFamily:"Assistant-Regular", alignSelf:"center"}}>{strings.whatsapp_msg_checkbox}</Text>
-    </View>
+    
     <InputCard
       text={"service.facebook"}
       hint={strings.input_facebook}
@@ -51,8 +43,15 @@ const [toggleCheckBox, setToggleCheckBox] = useState(true)
       {""}
     </InputCard>
 
-    <PhotosPicker>
-    </PhotosPicker>
+    <View style={{flexDirection:"row-reverse", justifyContent:"flex-start", marginHorizontal:10}}>
+      <CheckBox style={{alignSelf:"center"}}
+      disabled={false}
+      tintColors={{true:Colors.white,false:Colors.white}}
+      value={toggleCheckBox}
+      onValueChange={(newValue) => setToggleCheckBox(newValue)}/>
+      <Text style={{color:Colors.white, fontFamily:"Assistant-Regular", alignSelf:"center"}}>{strings.whatsapp_msg_checkbox}</Text>
+    </View>
+    
     
   </View>
   

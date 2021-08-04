@@ -35,6 +35,9 @@ import PhoneIcon from "./phoneIcon.svg";
 import WebsiteIcon from "./websiteIcon.svg";
 import ServicesIcon from "./service_icon.svg";
 import SunnyIcon from "./sunny.svg";
+import StarOn from "./star_on.svg";
+import WhatsappIcon from "./whatsapp";
+import FacebookIcon from "./facebook_icon.svg";
 
 export {    SchoolWhiteIcon, 
             SportWhiteIcon,
@@ -69,4 +72,7 @@ export {    SchoolWhiteIcon,
             PhoneIcon,
             WebsiteIcon,
             ServicesIcon,
+            StarOn,
+            WhatsappIcon,
+            FacebookIcon,
           };
