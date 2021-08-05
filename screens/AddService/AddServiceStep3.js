@@ -1,10 +1,10 @@
 import React, { useState } from "react";
-import { View, StyleSheet, Text, TouchableOpacity } from "react-native";
+import { View, StyleSheet, Text } from "react-native";
 import CheckBox from '@react-native-community/checkbox';
 import * as constants from "../../constants";
 import store from "../../redux/store";
 import * as strings from "../../strings";
-import {InputCard} from "../../components";
+import {CommonInput} from "../../components";
 import Colors from "../../design/colors";
 import FontSizes from "../../design/textSizes";
 
@@ -17,31 +17,31 @@ const [toggleCheckBox, setToggleCheckBox] = useState(true)
     <Text style={styles.text_style}>
       {strings.title_service_contact_details}
     </Text>
-    <InputCard
+    <CommonInput
       hint={strings.input_phone_number}
       text={"service.phone"}
       maxCharacters={10}
       parentCallback={props.callbackFunction}
       input_key = {constants.service_phone}>
       {""}
-    </InputCard>
+    </CommonInput>
     
-    <InputCard
+    <CommonInput
       text={"service.facebook"}
       hint={strings.input_facebook}
       maxCharacters={30}
       parentCallback={props.callbackFunction}
       input_key = {constants.service_facebook}>
       {""}
-    </InputCard>
-    <InputCard
+    </CommonInput>
+    <CommonInput
       hint={strings.input_website}
       text={"service.website"}
       maxCharacters={30}
       parentCallback={props.callbackFunction}
       input_key = {constants.service_website}>
       {""}
-    </InputCard>
+    </CommonInput>
 
     <View style={{flexDirection:"row-reverse", justifyContent:"flex-start", marginHorizontal:10}}>
       <CheckBox style={{alignSelf:"center"}}

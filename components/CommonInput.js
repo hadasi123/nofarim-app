@@ -2,7 +2,7 @@ import React from "react";
 import { TextInput, View } from "react-native";
 import Colors from "../design/colors";
 
-const InputCard = (props) => {
+const CommonInput = (props) => {
   const [text, onChangeText] = React.useState(props.text);
 
   const { maxCharacters, hint, inputStyle, parentCallback, input_key } = props;
@@ -41,4 +41,4 @@ const styles = {
   },
 };
 
-export default InputCard;
+export default CommonInput;

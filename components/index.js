@@ -2,7 +2,7 @@ import BasicActionButton from "./BasicActionButton";
 import BasicTop from "./BasicTop";
 import BasicWebView from "./BasicWebView";
 import HomeSectionHeader from "./HomeSectionHeader";
-import InputCard from "./InputCard";
+import CommonInput from "./CommonInput";
 import LoginButton from "./LoginButton";
 import ServicePicker from "./ServicePicker";
 import ServicesItemsGrid from "./ServicesItemsGrid";
@@ -18,7 +18,7 @@ export {    BasicActionButton,
             BasicTop,
             BasicWebView,
             HomeSectionHeader,
-            InputCard,
+            CommonInput,
             LoginButton,
             ServicePicker,
             ServicesItemsGrid,

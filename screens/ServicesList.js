@@ -6,9 +6,9 @@ import {BasicTop,CommonCardView} from "../components";
 import * as constants from "../constants";
 
 const ServicesList = (props) => {
-  const category = props.route.params.category;
-  const listIcon = props.route.params.listIcon;
-  const titleIcon = props.route.params.titleIcon;
+
+  const {category, listIcon, titleIcon} = props.route.params;
+  
   const professionalsCollection = firebase
     .firestore()
     .collection("professionals");

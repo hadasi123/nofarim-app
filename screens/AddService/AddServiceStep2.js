@@ -3,7 +3,7 @@ import { View, StyleSheet, Text} from "react-native";
 import * as constants from "../../constants";
 import store from "../../redux/store";
 import * as strings from "../../strings";
-import {InputCard} from "../../components";
+import {CommonInput} from "../../components";
 import Colors from "../../design/colors";
 import FontSizes from "../../design/textSizes";
 
@@ -12,7 +12,7 @@ const AddServiceStep2 = (props) => {
   return (
     <View style={styles.input_view_style}>
     <Text style={styles.text_style}>{strings.sub_service_name}</Text>
-    <InputCard
+    <CommonInput
       inputStyle={styles.short_input}
       hint={strings.hint_short_text_allowed}
       text={"service.title"}
@@ -20,11 +20,11 @@ const AddServiceStep2 = (props) => {
       parentCallback={props.callbackFunction}
       input_key = {constants.service_title}>
       {""}
-    </InputCard>
+    </CommonInput>
     <Text style={styles.text_style}>
       {strings.sub_service_description}
     </Text>
-    <InputCard
+    <CommonInput
       inputStyle={styles.long_input}
       text={"service.description"}
       hint={strings.hint_long_text_allowed}
@@ -32,7 +32,7 @@ const AddServiceStep2 = (props) => {
       parentCallback={props.callbackFunction}
       input_key = {constants.service_description}>
       {""}
-    </InputCard>
+    </CommonInput>
     </View>
   
   );
