@@ -1,32 +1,44 @@
 import React, {useState} from "react";
-import { Text, View , TouchableOpacity} from "react-native";
+import { Text, View , TouchableOpacity, Linking} from "react-native";
 import Colors from "../design/colors";
 import * as strings from "../strings";
 import Collapsible from 'react-native-collapsible';
 import {WhatsappIcon, WebsiteIcon,FacebookIcon} from "../assets";
-import {BasicWebView} from "../components";
+import * as constants from "../constants";
 
 const CommonCardView = (props) => {
 
   const { title, icon, description, phone, website, facebook, whatsappEnabled } = props;
   const [collapsed, setCollapsed] = useState(true)
 
-
   const onCollapsedHeaderPressed = () => {
     setCollapsed(!collapsed)
   }
 
+  const sendWhatsappMsg = ()=>{
+    let url =   "whatsapp://send?text=" +  
+                strings.whatsapp_msg_template +  
+                "&phone=972" + phone;
+
+    Linking.openURL(url).then(data => {
+            console.log("WhatsApp Opened successfully " + data);
+            })
+            .catch(() => {
+            console.log("No WhatsApp installed on your device");
+            });
+  }
+  
 
   const onPhoneNumberPress = () => {
-
+    whatsappEnabled? sendWhatsappMsg(): Linking.openURL(`tel:${phone}`)
   }
 
   const onWebsiteLinkPress = () => {
-
+    props.navigation.navigate(constants.screen_web,{source:website})
   }
 
   const onFacebookPress = () => {
-
+    props.navigation.navigate(constants.screen_web,{source:facebook})
   }
 
   return (

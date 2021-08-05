@@ -4,7 +4,7 @@ import * as strings from "../strings";
 import Colors from "../design/colors";
 import {SunnyIcon} from "../assets";
 import axios from 'axios';
-import {URL} from "../constants";
+import {weather_url} from "../constants";
 import colors from "../design/colors";
 
 const WeatherInfo = ()=> {
@@ -26,7 +26,7 @@ const WeatherInfo = ()=> {
 
     const getWeather = async () => {
         try {
-            const response = await axios.get(URL);
+            const response = await axios.get(weather_url);
             if (response.data) {
                 setCurrentTemp(Math.floor(response.data.main.temp)+"°");
                 setWeather(response.data.weather[0].description);

@@ -4,7 +4,6 @@ import { createStackNavigator } from "@react-navigation/stack";
 
 import {AboutUs,
         Main,
-        HazardAlert, 
         MarketPlace, 
         ServicesList, 
         Profile, 
@@ -12,10 +11,10 @@ import {AboutUs,
         Login,
         Splash,
         Info,
-        PrivacyPolicy,
         LostAndFounds,
         AddServiceMain } from "../screens";
 
+import {BasicWebView} from "../components";
 import * as constants from "../constants";
 import { StyleSheet } from "react-native";
 
@@ -51,13 +50,12 @@ const MyNavigation = () => {
           options={{ headerShown: false }}
         />
         <RootStack.Screen
-          name={constants.screen_privacy}
-          component={PrivacyPolicy}
-          options={{ headerShown: false }}
-        />
-        <RootStack.Screen
-          name={constants.screen_hazard_report}
-          component={HazardAlert}
+          name={constants.screen_web}
+          component={BasicWebView}
+          options={({ route }) => ({
+            source: route.params.source,
+            headerShown: false,
+          })}
         />
         <RootStack.Screen
           name={constants.screen_lost_and_founds}

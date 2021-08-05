@@ -8,7 +8,7 @@ export const screen_profile = "פרופיל";
 export const screen_updates = "עדכוני מינהלת השכונה";
 export const screen_about = "מי אנחנו";
 export const screen_info = "מידע לתושב";
-export const screen_privacy = "מדיניות פרטיות";
+export const screen_web = "דף אינטרנט";
 export const screen_hazard_report = "דיווח על מפגע";
 export const screen_lost_and_founds = "השבת אבידה";
 export const screen_add_service = "הוספת שירות";
@@ -33,4 +33,6 @@ export const services_others = "שונות";
 export const service_types = [services_food, services_beauty, services_childcare,
     services_professionals, services_sport, services_community, services_school, services_others]
 
-export const URL = "https://api.openweathermap.org/data/2.5/weather?q=Rosh%20Ha%E2%80%98Ayin&appid=6ea4a1a29ca77ba470ddec048bb064cf&units=metric&lang=he";
+export const weather_url = "https://api.openweathermap.org/data/2.5/weather?q=Rosh%20Ha%E2%80%98Ayin&appid=6ea4a1a29ca77ba470ddec048bb064cf&units=metric&lang=he";
+export const hazard_alert_url="https://tiktak-qa.metropolinet.co.il/#!form/201732361158450/15";
+export const privacy_policy_url ="https://nofarim.flycricket.io/privacy.html";

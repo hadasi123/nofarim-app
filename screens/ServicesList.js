@@ -49,6 +49,7 @@ const ServicesList = (props) => {
             return (
               <View style={styles.section_style}>
               <CommonCardView
+              navigation={props.navigation}
               title={title}
               icon={listIcon}
               description={description}

@@ -62,6 +62,7 @@ export const send_sms = "שליחת מסרון";
 export const send_whatsapp_msg = "שליחת וואטסאפ";
 export const go_to_facebook_page = "לעמוד הפייסבוק";
 export const go_to_website = "לאתר הבית";
+export const whatsapp_msg_template = "הי, הגעתי אליך דרך אפליקציית נופרים ורציתי לקבל פרטים נוספים על המודעה שפרסמת...";
 
 // events
 export const past_events = "אירועים קרובים";

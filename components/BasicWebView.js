@@ -9,9 +9,10 @@ const renderLoading = () => {
 };
 
 const BasicWebView = (props) => {
+
   return (
     <WebView
-      source={props.source}
+      source={{ uri: props.route.params.source, }}
       renderLoading={renderLoading}
       startInLoadingState
     />

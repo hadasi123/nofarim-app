@@ -97,7 +97,7 @@ const Main = (props) => {
         <View style={styles.bottom_section_style}>
           <Text
             style={styles.bottom_text_style}
-            onPress={() => props.navigation.navigate(constants.screen_privacy)}
+            onPress={() => props.navigation.navigate(constants.screen_web,{source:constants.privacy_policy_url})}
           >
             {strings.main_privacy_policy}
           </Text>
