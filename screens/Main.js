@@ -21,7 +21,6 @@ const Main = ( {services,
 
   useEffect(()=> {
     changeNavigationBarColor(Colors.black);
-    console.log(weather, updates)
     getUpdates();
   },[]);
 
@@ -63,8 +62,8 @@ const Main = ( {services,
             <UpdateCard
               title={strings.main_updates_subtitle}
               icon={<AlertIcon></AlertIcon>}
-              date="8/8/2020"
-              text={strings.update_place_holder}
+              date={updates&&updates[0]&&updates[0].date}
+              text={updates&&updates[0]&&updates[0].content}
             />
           </View>
         </View>

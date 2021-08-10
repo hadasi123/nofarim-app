@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import { View, StyleSheet, ScrollView } from "react-native";
 import Accordion from "react-native-collapsible/Accordion";
 import { TouchableWithoutFeedback } from "react-native-gesture-handler";
@@ -6,10 +6,10 @@ import {BasicTop,UpdateCard}  from "../components";
 import {UpdatesIcon, AlertIcon} from "../assets";
 import * as Strings from "../strings";
 import * as constants from "../constants";
-import store from "../redux/store";
+import {connect} from 'react-redux';
 
-const Updates = (props) => {
-  
+const Updates = ({updates,props}) => {
+
   const [activeSections, setActiveSections] = useState([]);
 
   const _renderHeader = (section) => {
@@ -34,18 +34,16 @@ const Updates = (props) => {
   return (
     <View style={styles.base}>
       <TouchableWithoutFeedback
-        onPress={() => props.navigation.navigate(constants.screen_main)}
-      >
+        onPress={() => props.navigation.navigate(constants.screen_main)}>
         <BasicTop
           title={Strings.menu_updates}
-          icon={<UpdatesIcon></UpdatesIcon>}
-        />
+          icon={<UpdatesIcon></UpdatesIcon>}/>
       </TouchableWithoutFeedback>
 
       <ScrollView style={styles.view_style}>
-        {store.getState.updates && (
+        {updates && (
           <Accordion
-            sections={store.getState.updates}
+            sections={updates}
             activeSections={activeSections}
             renderHeader={_renderHeader}
             renderContent={_renderContent}
@@ -87,4 +85,9 @@ const styles = StyleSheet.create({
   },
 });
 
-export default Updates;
+const mapStateToProps = (state, props)=>({
+  updates:state.updates,
+  props:props,
+})
+
+export default connect(mapStateToProps)(Updates);

@@ -11,6 +11,8 @@ export const initialState={
 };
 
 const mainReducer = (state=initialState,action) => {
+
+  console.log("inside mainReducer"+ action.payload)
   switch(action.type){
     case LOGIN_SUCCESS: {
       return Object.assign({}, state, {
@@ -25,7 +27,7 @@ const mainReducer = (state=initialState,action) => {
     case GET_UPDATES: 
         return{
         ...state,
-        updates: action.payload.updates
+        updates:action.payload
     }
     default:
         return state;

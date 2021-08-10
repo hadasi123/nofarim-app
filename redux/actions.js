@@ -21,7 +21,7 @@ export const GET_WEATHER = "GET_WEATHER";
 
 export const getAllUpdates = () => async(dispatch,getState)=>{    
     const updates = await fetchUpdatesFromFirebase()
-    updates.sort((updatesA, updatesB) => (updatesA.date > updatesB.date) ? 1 : -1);
+    updates.sort((updatesA, updatesB) => (updatesA.date < updatesB.date) ? 1 : -1);
     dispatch({
         type:GET_UPDATES,
         payload:updates
