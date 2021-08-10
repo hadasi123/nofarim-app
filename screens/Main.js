@@ -6,19 +6,32 @@ import * as constants from "../constants";
 import * as strings from "../strings";
 import Colors from "../design/colors";
 import {ProfileIcon, AlertIcon} from "../assets";
+import {getAllUpdates} from "../redux/actions";
+import {connect} from 'react-redux';
 
-const Main = (props) => {
- 
+const Main = ( {services,
+                updates,
+                market_items,
+                lost_found_items,
+                weather,
+                getUpdates,
+                navigation}) =>
+
+{
+
   useEffect(()=> {
     changeNavigationBarColor(Colors.black);
+    console.log(weather, updates)
+    getUpdates();
   },[]);
+
 
   return (
     <View style={styles.base_style}>
       <View style={styles.header}>
         <ProfileIcon
           onPress={() =>
-            props.navigation.navigate(constants.screen_add_service)
+            navigation.navigate(constants.screen_add_service)
           }
         ></ProfileIcon>
         <Text style={styles.title_style}>{strings.main_title}</Text>
@@ -31,22 +44,20 @@ const Main = (props) => {
           <WeatherInfo></WeatherInfo>
         </View>
 
-
-    
         <View style={styles.section_style}>
           <HomeSectionHeader
             add={true}
             title={strings.main_services_title}
-            onPress={() => props.navigation.navigate(constants.screen_add_service)}
+            onPress={() => navigation.navigate(constants.screen_add_service)}
           />
-          <ServicesItemsGrid navigation={props.navigation}></ServicesItemsGrid>
+          <ServicesItemsGrid navigation={navigation}></ServicesItemsGrid>
         </View>
 
         <View style={styles.section_style}>
           <HomeSectionHeader
             showMore={true}
             title={strings.main_updates_title}
-            onPress={() => props.navigation.navigate(constants.screen_updates)}
+            onPress={() => navigation.navigate(constants.screen_updates)}
           />
           <View style={styles.card_style}>
             <UpdateCard
@@ -63,7 +74,7 @@ const Main = (props) => {
             showMore={true}
             title={strings.main_giveaway_title}
             onPress={() =>
-              props.navigation.navigate(constants.screen_giveaways)
+              navigation.navigate(constants.screen_giveaways)
             }
           />
           <View style={styles.card_style}>
@@ -81,7 +92,7 @@ const Main = (props) => {
             showMore={true}
             title={strings.main_lost_and_founds}
             onPress={() =>
-              props.navigation.navigate(constants.screen_lost_and_founds)
+              navigation.navigate(constants.screen_lost_and_founds)
             }
           />
           <View style={styles.card_style}>
@@ -97,21 +108,21 @@ const Main = (props) => {
         <View style={styles.bottom_section_style}>
           <Text
             style={styles.bottom_text_style}
-            onPress={() => props.navigation.navigate(constants.screen_web,{source:constants.privacy_policy_url})}
+            onPress={() => navigation.navigate(constants.screen_web,{source:constants.privacy_policy_url})}
           >
             {strings.main_privacy_policy}
           </Text>
           <View style={styles.seperator}></View>
           <Text
             style={styles.bottom_text_style}
-            onPress={() => props.navigation.navigate(constants.screen_info)}
+            onPress={() => navigation.navigate(constants.screen_info)}
           >
             {strings.main_residents_info}{" "}
           </Text>
           <View style={styles.seperator}></View>
           <Text
             style={styles.bottom_text_style}
-            onPress={() => props.navigation.navigate(constants.screen_about)}
+            onPress={() => navigation.navigate(constants.screen_about)}
           >
             {strings.main_about_us}
           </Text>
@@ -174,4 +185,15 @@ const styles = StyleSheet.create({
   },
 });
 
-export default Main;
+const mapStateToProps = (state, props)=>({
+  services:state.services,
+  updates: state.updates,
+  market_items: state.market_items,
+  lost_found_items: state.lost_found_items,
+  weather:state.weather,
+  navigation: props.navigation})
+
+const mapDispatchToProps={
+  getUpdates:getAllUpdates,
+  }
+export default connect(mapStateToProps,mapDispatchToProps)(Main);

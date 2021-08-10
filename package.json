@@ -41,7 +41,7 @@
     "react-native-view-more-text": "^2.1.0",
     "react-native-webview": "^11.6.5",
     "react-redux": "^7.2.4",
-    "redux": "^4.1.0",
+    "redux": "^4.1.1",
     "redux-thunk": "^2.3.0",
     "rn-viewpager": "^1.2.9"
   },

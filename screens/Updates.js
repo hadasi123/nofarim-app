@@ -2,33 +2,15 @@ import React, { useEffect, useState } from "react";
 import { View, StyleSheet, ScrollView } from "react-native";
 import Accordion from "react-native-collapsible/Accordion";
 import { TouchableWithoutFeedback } from "react-native-gesture-handler";
-import { firebase } from "../firebase/config";
 import {BasicTop,UpdateCard}  from "../components";
 import {UpdatesIcon, AlertIcon} from "../assets";
 import * as Strings from "../strings";
 import * as constants from "../constants";
+import store from "../redux/store";
 
 const Updates = (props) => {
-  const updatesCollection = firebase.firestore().collection("updates");
-  const [updates, setUpdates] = useState([]);
+  
   const [activeSections, setActiveSections] = useState([]);
-  var newUpdates = [];
-
-  useEffect(() => {
-    const fetchUpdates = async () => {
-      try {
-        const querySnapshot = await updatesCollection.get();
-        querySnapshot.forEach(function (doc) {
-          console.log(doc.id, " => ", doc.data());
-          newUpdates = [...newUpdates, doc.data()];
-        });
-        _setUpdates(newUpdates);
-      } catch (error) {
-        console.log("Error getting documents: ", error);
-      }
-    };
-    fetchUpdates();
-  }, []);
 
   const _renderHeader = (section) => {
     return (
@@ -49,10 +31,6 @@ const Updates = (props) => {
     setActiveSections(activeSections);
   };
 
-  const _setUpdates = (updates) => {
-    setUpdates(updates);
-  };
-
   return (
     <View style={styles.base}>
       <TouchableWithoutFeedback
@@ -65,9 +43,9 @@ const Updates = (props) => {
       </TouchableWithoutFeedback>
 
       <ScrollView style={styles.view_style}>
-        {updates && (
+        {store.getState.updates && (
           <Accordion
-            sections={updates}
+            sections={store.getState.updates}
             activeSections={activeSections}
             renderHeader={_renderHeader}
             renderContent={_renderContent}

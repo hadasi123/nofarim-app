@@ -10,7 +10,7 @@ import * as strings from "../../strings";
 import {ServicesIcon, NextIcon } from "../../assets";
 import {BasicActionButton, BasicTop} from "../../components";
 import Colors from "../../design/colors";
-import {AddServiceStep1, AddServiceStep2, AddServiceStep3, AddServiceStep4} from "../../screens";
+import {AddServiceStep1, AddServiceStep2, AddServiceStep3, AddServiceStep4} from "../AddService";
 
 const AddServiceMain = (props) => {
 

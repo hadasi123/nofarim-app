@@ -1,15 +1,16 @@
 import React, { useEffect } from "react";
 import { StyleSheet, View } from "react-native";
-import store from "../redux/store";
+import {connect} from 'react-redux';
 import * as constants from "../constants";
-import * as colors from "../design/colors"
+import * as colors from "../design/colors";
 
-const Splash = (props) => {
+function Splash ({loggedIn, email, navigation}) {
   useEffect(() => {
-    if (store.getState().loggedin) {
-      props.navigation.navigate(constants.screen_main);
+    if (loggedIn) {
+      navigation.navigate(constants.screen_main);
     } else {
-      props.navigation.navigate(constants.screen_login);
+      console.log("inside splash "+email)
+      navigation.navigate(constants.screen_login);
     }
   }, []);
 
@@ -24,4 +25,9 @@ const styles = StyleSheet.create({
   },
 });
 
-export default Splash;
+const mapStateToProps = (state,props)=>({
+  loggedIn:state.loggedIn,
+  email:state.email,
+  navigation:props.navigation})
+
+export default connect(mapStateToProps)(Splash);
